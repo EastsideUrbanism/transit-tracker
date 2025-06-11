@@ -1,0 +1,12 @@
+packages:
+  base: !include transit-tracker.yaml
+
+display:
+  - id: !extend matrix
+    width: 128
+    height: 64
+    chain_length: 4
+
+transit_tracker:
+  id: tracker
+  limit: 6
