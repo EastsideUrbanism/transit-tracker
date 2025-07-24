@@ -20,6 +20,9 @@ external_components:
     components: [ serial_rpc ]
   - source: github://tjhorner/esphome-transit-tracker@main
     refresh: 0s
+  - source: github://tjhorner/esphome@remove-tx-timeout-esp32-2025.7.3
+    components: [ logger ]
+    refresh: 1h
 
 logger:
   level: DEBUG
