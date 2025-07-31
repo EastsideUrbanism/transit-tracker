@@ -16,7 +16,7 @@ esp32:
 
 external_components:
   - source: github://TillFleisch/ESPHome-HUB75-MatrixDisplayWrapper@main
-  - source: github://tjhorner/esphome-custom-components@main
+  - source: github://tjhorner/esphome-custom-components@1909519fa93747c232b5dbc41f5ada3c41cc2257
     components: [ serial_rpc ]
   - source: github://tjhorner/esphome-transit-tracker@main
     refresh: 0s
