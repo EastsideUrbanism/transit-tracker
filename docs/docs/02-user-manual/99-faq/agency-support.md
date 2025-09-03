@@ -29,6 +29,16 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 - Kitsap Transit
 - Whatcom Transportation Authority
 
+### Canada
+
+#### Ontario
+
+- Toronto Transit Commission (TTC)
+
+### Germany
+
+- Verkehrsverbund Berlin-Brandenburg (VBB)
+
 ## Agency not listed?
 
 We can easily add support for new transit agencies. Please let us know which you'd like added either in the [Discord](https://discord.com/invite/zhXKQ4vMp8) or by [opening an issue](https://github.com/EastsideUrbanism/transit-tracker/issues).
