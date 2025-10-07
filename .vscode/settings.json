@@ -5,5 +5,7 @@
     "*.ejs": "html",
     "*.scss": "postcss",
     "new": "cpp"
-  }
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:venv",
+  "python-envs.pythonProjects": []
 }
