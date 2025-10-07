@@ -18,6 +18,10 @@ You can adjust the arrival/departure times shown on your Transit Tracker by pres
 
 For example, if you set a travel time of 5 minutes, and the next bus is scheduled to arrive at the stop in 15 minutes, your Transit Tracker will display 10 minutes. This effectively gives you a "leave by" time and hides any trips that you would not be able to catch in time.
 
+<!-- ## Scroll Headsigns
+
+Sometimes the headsigns (destination names) for a route are too long to fit on the display. Normally they will be cut off, but you can enable this option to have them scroll across the display instead. -->
+
 ## Time Display
 
 This option controls whether the displayed times count down to the next arrival or the next departure. It may be useful to choose departure if, for instance, your train or bus typically lingers at a station for a while before leaving.

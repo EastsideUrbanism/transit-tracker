@@ -10,7 +10,8 @@ esphome:
     version: ${project_version}
 
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  flash_size: 8MB
   framework:
     type: arduino
 
@@ -20,9 +21,6 @@ external_components:
     components: [ serial_rpc ]
   - source: github://tjhorner/esphome-transit-tracker@main
     refresh: 0s
-  - source: github://tjhorner/esphome@remove-tx-timeout-esp32-2025.7.3
-    components: [ logger ]
-    refresh: 1h
 
 logger:
   level: DEBUG
@@ -61,6 +59,15 @@ switch:
     turn_off_action:
       - lambda: |-
           id(matrix).set_rotation(esphome::display::DisplayRotation::DISPLAY_ROTATION_0_DEGREES);
+  - platform: template
+    id: scroll_headsigns_config
+    name: "Scroll Headsigns"
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    turn_on_action:
+      - lambda: id(tracker).set_scroll_headsigns(true);
+    turn_off_action:
+      - lambda: id(tracker).set_scroll_headsigns(false);
 
 button:
   - platform: restart
@@ -240,6 +247,7 @@ binary_sensor:
 display:
   - platform: hub75_matrix_display
     id: matrix
+    update_interval: 32ms
     width: 64
     height: 32
     chain_length: 2
