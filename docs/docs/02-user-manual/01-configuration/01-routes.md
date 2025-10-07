@@ -10,7 +10,7 @@ Clicking the "Edit routes" button will open the route editor map.
 
 ![](./_img/route-editor.png)
 
-Find the a stop with departures or arrivals you want to track, click it, then select the routes you want to track. You can select up to five.
+Find the a stop with departures or arrivals you want to track, click it, then select the routes you want to track.
 
 #### Travel Time
 
