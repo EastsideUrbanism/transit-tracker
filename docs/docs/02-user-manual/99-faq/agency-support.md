@@ -35,6 +35,10 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 
 - TransLink (Metro Vancouver)
 
+#### Manitoba
+
+- Winnipeg Transit
+
 #### Ontario
 
 - Toronto Transit Commission (TTC)
