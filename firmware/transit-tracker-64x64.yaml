@@ -1,0 +1,289 @@
+substitutions:
+  project_version: "dev"
+
+esphome:
+  name: transit-tracker
+  friendly_name: Transit Tracker
+  name_add_mac_suffix: true
+  project:
+    name: "Eastside Urbanism.Transit Tracker"
+    version: ${project_version}
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+
+external_components:
+  - source: github://TillFleisch/ESPHome-HUB75-MatrixDisplayWrapper@main
+  - source: github://tjhorner/esphome-transit-tracker@main
+  - source: github://tjhorner/esphome-custom-components@main
+    components: [ serial_rpc ]
+
+logger:
+  level: DEBUG
+
+wifi:
+  networks:
+    - ssid: "TJ's iPhone"
+      password: "hunter22"
+  ap:
+    password: "hunter2hunter2"
+
+captive_portal:
+
+api:
+  reboot_timeout: 0s
+
+ota:
+  - platform: esphome
+    password: ""
+
+switch:
+  - platform: template
+    id: flip_display_config
+    name: "Flip Display"
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    turn_on_action:
+      - lambda: |-
+          id(matrix).set_rotation(esphome::display::DisplayRotation::DISPLAY_ROTATION_180_DEGREES);
+    turn_off_action:
+      - lambda: |-
+          id(matrix).set_rotation(esphome::display::DisplayRotation::DISPLAY_ROTATION_0_DEGREES);
+
+button:
+  - platform: restart
+    name: "Restart"
+  - platform: template
+    id: reload_tracker
+    on_press:
+      - lambda: |-
+          id(tracker).reconnect();
+  - platform: template
+    id: write_preferences
+    on_press:
+      - lambda: |-
+          global_preferences->sync();
+
+text:
+  - platform: template
+    id: base_url_config
+    mode: text
+    optimistic: true
+    restore_value: true
+    on_value:
+      then:
+        lambda: |
+          id(tracker).set_base_url(id(base_url_config)->state);
+  - platform: template
+    id: feed_code_config
+    mode: text
+    optimistic: true
+    restore_value: true
+    on_value:
+      then:
+        lambda: |
+          id(tracker).set_feed_code(id(feed_code_config)->state);
+  - platform: template
+    id: schedule_config
+    mode: text
+    optimistic: true
+    restore_value: true
+    on_value:
+      then:
+        lambda: |
+          id(tracker).set_schedule_string(id(schedule_config)->state);
+  - platform: template
+    id: abbreviations_config
+    mode: text
+    optimistic: true
+    restore_value: true
+    on_value:
+      then:
+        lambda: |
+          id(tracker).set_abbreviations_from_text(id(abbreviations_config)->state);
+  - platform: template
+    id: route_styles_config
+    mode: text
+    optimistic: true
+    restore_value: true
+    on_value:
+      then:
+        lambda: |
+          id(tracker).set_route_styles_from_text(id(route_styles_config)->state);
+
+select:
+  - platform: template
+    id: time_display_config
+    optimistic: true
+    restore_value: true
+    options:
+      - "departure"
+      - "arrival"
+    on_value:
+      then:
+        lambda: |-
+          id(tracker).set_display_departure_times(id(time_display_config)->state == "departure");
+  - platform: template
+    id: time_units_config
+    optimistic: true
+    restore_value: true
+    options:
+      - "long"
+      - "short"
+      - "none"
+    on_value:
+      then:
+        lambda: |-
+          transit_tracker::UnitDisplay unit_display;
+          if (id(time_units_config)->state == "long") {
+            unit_display = transit_tracker::UnitDisplay::UNIT_DISPLAY_LONG;
+          } else if (id(time_units_config)->state == "short") {
+            unit_display = transit_tracker::UnitDisplay::UNIT_DISPLAY_SHORT;
+          } else {
+            unit_display = transit_tracker::UnitDisplay::UNIT_DISPLAY_NONE;
+          }
+
+          id(tracker).set_unit_display(unit_display);
+  - platform: template
+    id: list_mode_config
+    optimistic: true
+    restore_value: true
+    options:
+      - "sequential"
+      - "nextPerRoute"
+    on_value:
+      then:
+        lambda: |-
+          id(tracker).set_list_mode(id(list_mode_config)->state);
+
+number:
+  - platform: hub75_matrix_display
+    matrix_id: matrix
+    id: display_brightness_number
+
+output:
+  - platform: template
+    id: display_brightness_output
+    type: float
+    write_action:
+      - number.set:
+          id: display_brightness_number
+          value: !lambda return state * 255.0;
+
+light:
+  - platform: monochromatic
+    name: Display Brightness
+    id: display_brightness
+    output: display_brightness_output
+    restore_mode: RESTORE_DEFAULT_ON
+
+script:
+  - id: dim_display
+    parameters:
+      up: bool
+    then:
+      - light.dim_relative:
+          id: display_brightness
+          relative_brightness: !lambda "return up ? 0.2 : -0.2;"
+          transition_length: 0.1s
+
+binary_sensor:
+  - platform: template
+    id: both_buttons
+    lambda: |-
+      return id(up_button).state && id(down_button).state;
+    on_press:
+      then:
+        - display.page.show_next: matrix
+  - platform: gpio
+    id: up_button
+    pin: &button_pin_cfg
+      number: GPIO6
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters: &button_filters
+      - autorepeat:
+        - delay: 500ms
+          time_off: 300ms
+          time_on: 100ms
+    on_press:
+      then:
+        - script.execute:
+            id: dim_display
+            up: !lambda "return !id(flip_display_config).state;"
+  - platform: gpio
+    id: down_button
+    pin:
+      <<: *button_pin_cfg
+      number: GPIO7
+    filters: *button_filters
+    on_press:
+      then:
+        - script.execute:
+            id: dim_display
+            up: !lambda "return id(flip_display_config).state;"
+
+display:
+  - platform: hub75_matrix_display
+    id: matrix
+    update_interval: 32ms
+    width: 64
+    height: 64
+    chain_length: 2
+    R1_pin: 42
+    G1_pin: 41
+    B1_pin: 40
+    R2_pin: 38
+    G2_pin: 39
+    B2_pin: 37
+    A_pin: 45
+    B_pin: 36
+    C_pin: 48
+    D_pin: 35
+    E_pin: 21
+    LAT_pin: 47
+    OE_pin: 14
+    CLK_pin: 2
+    clock_phase: false
+    i2sspeed: HZ_8M
+    brightness: 255
+    pages:
+      - id: transit_schedule
+        lambda: |-
+          id(tracker).draw_schedule();
+      - id: ip_address_page
+        lambda: |-
+          int x = it.get_width() / 2;
+          int y = it.get_height() / 2;
+
+          auto ip_addresses = ::esphome::network::get_ip_addresses();
+          if (ip_addresses.empty()) {
+            it.printf(x, y, id(pixolletta), COLOR_ON, TextAlign::CENTER, "No IP Address");
+            return;
+          }
+
+          it.printf(x, y, id(pixolletta), COLOR_ON, TextAlign::CENTER, "%s", ip_addresses[0].str().c_str());
+
+font:
+  - file: "fonts/Pixolletta8px.ttf"
+    id: pixolletta
+    size: 10
+    glyphs:
+      - abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;!?()"'-+/*=%@#[]{}<>|&^~
+      - " "
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: America/Los_Angeles
+
+transit_tracker:
+  id: tracker
+  scroll_headsigns: true
+  limit: 6
+
+serial_rpc:
