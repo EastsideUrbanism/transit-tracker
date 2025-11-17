@@ -1,6 +1,6 @@
 # Troubleshooting & Support
 
-If you're experiencing issues with your Transit Tracker, you can join the [Eastside Urbanism Discord](https://discord.com/invite/zhXKQ4vMp8) and ask for help in the `#transit-tracker` channel.
+If you're experiencing issues with your Transit Tracker, please check the following troubleshooting steps. If you still need help, please open a [GitHub issue](https://github.com/EastsideUrbanism/transit-tracker/issues).
 
 ## Status Messages
 

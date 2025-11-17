@@ -73,6 +73,11 @@ const config: Config = {
           label: "Documentation",
         },
         {
+          to: "docs/user-manual/faq/agency-support",
+          label: "Supported Agencies",
+          position: "left",
+        },
+        {
           to: "configurator",
           label: "Configurator",
           position: "left",
