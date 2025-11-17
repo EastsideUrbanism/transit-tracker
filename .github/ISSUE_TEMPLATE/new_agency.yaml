@@ -39,11 +39,12 @@ body:
       label: Transitland URL
       description: |
         Please look for your agency on [Transitland](https://www.transit.land/operators) and provide the URL to its page if you are able to find it.
-        This will expedite the process of adding your agency.
+        
+        **This will significantly expedite the process of adding your agency, so please search and provide it if possible!**
     validations:
       required: false
   - type: textarea
     id: notes
     attributes:
       label: Notes
-      description: If you have any additional information or context about this agency or its data that might be helpful, please provide it here.
+      description: If you have any additional information or context about this agency or its data that might be helpful, please provide it here. Information regarding GTFS feeds (such as a link to the agency's open data page) is especially appreciated.
