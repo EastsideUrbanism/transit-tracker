@@ -11,6 +11,7 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 #### California
 
 - North County Transit District
+- San Diego Metropolitan Transit System (MTS)
 
 #### Washington, D.C.
 
