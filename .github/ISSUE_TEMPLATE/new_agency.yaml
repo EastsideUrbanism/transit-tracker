@@ -8,23 +8,15 @@ body:
       value: |
         # Important Note - PLEASE READ
 
-        Thank you for your interest in our Transit Tracker project!
-        Please keep in mind that this project is entirely run by volunteers
-        in their spare time while paying for all associated costs (e.g., hosting)
-        out-of-pocket.
+        Thank you for your interest in our Transit Tracker project! Please keep in mind that this project is entirely run by volunteers in their spare time while paying for all associated costs (e.g., hosting) out-of-pocket.
 
-        Submitting this form doesn't guarantee that we will add support for
-        your agency, but we will do our best accommodate as many as we can.
+        Submitting this form doesn't guarantee that we will add support for your agency, but we will do our best accommodate as many as we can.
 
         **Please search for your agency in the [existing issues](https://github.com/EastsideUrbanism/transit-tracker/issues?q=sort:updated-desc%20is:issue%20is:open%20label:%22new%20agency%22) to make sure you aren't submitting a duplicate request.**
 
         # Self-Hosting
 
-        The entire Transit Tracker project is open source, and the API server
-        is designed to be easy to self-host. This means you can run your own
-        instance and add your transit agency instead of waiting around for us
-        to get to your request. For more information on self-hosting, please see
-        [this GitHub repository](https://github.com/tjhorner/transit-tracker-api).
+        The entire Transit Tracker project is open source, and the API server is designed to be easy to self-host. This means you can run your own instance and add your transit agency instead of waiting around for us to get to your request. For more information on self-hosting, please see [this GitHub repository](https://github.com/tjhorner/transit-tracker-api).
   - type: input
     id: agency-name
     attributes:
