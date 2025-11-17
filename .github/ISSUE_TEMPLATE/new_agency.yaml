@@ -1,0 +1,57 @@
+name: New Agency Request
+description: Request support for a new transit agency
+title: "[New Agency] "
+labels: ["new agency"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Important Note - PLEASE READ
+
+        Thank you for your interest in our Transit Tracker project!
+        Please keep in mind that this project is entirely run by volunteers
+        in their spare time while paying for all associated costs (e.g., hosting)
+        out-of-pocket.
+
+        Submitting this form doesn't guarantee that we will add support for
+        your agency, but we will do our best accommodate as many as we can.
+
+        **Please search for your agency in the [existing issues](https://github.com/EastsideUrbanism/transit-tracker/issues?q=sort:updated-desc%20is:issue%20is:open%20label:%22new%20agency%22) to make sure you aren't submitting a duplicate request.**
+
+        # Self-Hosting
+
+        The entire Transit Tracker project is open source, and the API server
+        is designed to be easy to self-host. This means you can run your own
+        instance and add your transit agency instead of waiting around for us
+        to get to your request. For more information on self-hosting, please see
+        [this GitHub repository](https://github.com/tjhorner/transit-tracker-api).
+  - type: input
+    id: agency-name
+    attributes:
+      label: Agency Name
+      description: What is the full name of the transit agency you want added?
+      placeholder: e.g., "King County Metro"
+    validations:
+      required: true
+  - type: input
+    id: region
+    attributes:
+      label: Region
+      description: Which geographic region does this agency operate in?
+      placeholder: e.g., "King County, Washington, USA"
+    validations:
+      required: true
+  - type: input
+    id: transitland-url
+    attributes:
+      label: Transitland URL
+      description: |
+        Please look for your agency on [Transitland](https://www.transit.land/operators) and provide the URL to its page if you are able to find it.
+        This will expedite the process of adding your agency.
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: If you have any additional information or context about this agency or its data that might be helpful, please provide it here.
