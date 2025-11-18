@@ -54,6 +54,6 @@ Some transit agencies do not provide real-time data in a format supported by the
 
 ## Agency not listed?
 
-We can easily add support for new transit agencies. Please check the [GitHub issues](https://github.com/EastsideUrbanism/transit-tracker/issues) to see if someone has requested it previously, and [open an issue](https://github.com/EastsideUrbanism/transit-tracker/issues/new?template=new_agency.yaml) if not.
+If you would like us to add your local transit agency to our hosted API server, please check the [GitHub issues](https://github.com/EastsideUrbanism/transit-tracker/issues) to see if someone has requested it previously, and [open an issue](https://github.com/EastsideUrbanism/transit-tracker/issues/new?template=new_agency.yaml) if not. Please keep in mind that opening an issue does not guarantee that we will add your agency; it is simply registering interest. It is infeasible for us to support every request due to hosting costs and volunteer time constraints, but we will do our best to accommodate as many as we can.
 
 Since the Transit Tracker API server is open-source, anyone can host their own server and add support for any transit agency they'd like. More information on self-hosting is available in the [API Server](../../03-advanced/api-server.md) documentation.
