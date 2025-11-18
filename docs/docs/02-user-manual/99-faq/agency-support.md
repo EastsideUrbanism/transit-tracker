@@ -17,6 +17,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | San Diego Metropolitan Transit System (MTS)            | San Diego, California, USA                | ✅             |
 | Regional Transportation District (RTD)                 | Denver, Colorado, USA                     | ✅             |
 | Chicago Transit Authority (CTA)                        | Chicago, Illinois, USA                    |                |
+| Metra                                                  | Chicago, Illinois, USA                    |                |
 | Massachusetts Bay Transportation Authority (MBTA)      | Massachusetts, USA                        | ✅             |
 | NJ Transit                                             | New Jersey, USA                           |                |
 | MTA Buses                                              | New York, USA                             | ✅             |
