@@ -8,7 +8,7 @@ Due to this, we strongly recommend [hosting your own API server](../../03-advanc
 
 ## Supported Agencies
 
-Our Transit Tracker API server currently syndicates data from the following agencies. Agencies without real-time data will still provide static schedule information.
+Our Transit Tracker API server currently syndicates data from the following agencies.
 
 | Agency                                                 | Service Area                               | Real-Time Data |
 | ------------------------------------------------------ | ------------------------------------------ | -------------- |
@@ -16,6 +16,8 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | North County Transit District                          | California, USA                            | ✅             |
 | San Diego Metropolitan Transit System (MTS)            | California, USA                            | ✅             |
 | Regional Transportation District (RTD)                 | Colorado, USA (Denver)                     | ✅             |
+| Chicago Transit Authority (CTA)                        | Illinois, USA (Chicago)                    |                |
+| Massachusetts Bay Transportation Authority (MBTA)      | Massachusetts, USA                         | ✅             |
 | NJ Transit                                             | New Jersey, USA                            |                |
 | MTA Buses                                              | New York, USA                              | ✅             |
 | NYC Subway                                             | New York, USA                              |                |
@@ -41,6 +43,10 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                   | ✅             |
 | Toronto Transit Commission (TTC)                       | Ontario, Canada                            | ✅             |
 | Verkehrsverbund Berlin-Brandenburg (VBB)               | Germany                                    |                |
+
+### Why is there no real-time data for some agencies?
+
+Some transit agencies do not provide real-time data in a format supported by the Transit Tracker API, e.g. through a non-standard API or not at all. In these cases, only scheduled arrival times will be available.
 
 ## Agency not listed?
 
