@@ -13,6 +13,10 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 - North County Transit District
 - San Diego Metropolitan Transit System (MTS)
 
+#### Colorado
+
+- Regional Transportation District (RTD) (Denver)
+
 #### New Jersey
 
 - NJ Transit
@@ -29,6 +33,10 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 #### Texas
 
 - Dallas Area Rapid Transit (DART)
+
+#### Virginia
+
+- DASH (Alexandria)
 
 #### Washington, D.C.
 
