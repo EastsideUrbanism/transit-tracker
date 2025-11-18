@@ -13,6 +13,14 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 - North County Transit District
 - San Diego Metropolitan Transit System (MTS)
 
+#### New York
+
+- MTA Buses & NYC Subway
+
+#### Texas
+
+- Dallas Area Rapid Transit (DART)
+
 #### Washington, D.C.
 
 - Washington Metropolitan Area Transit Authority (WMATA)
