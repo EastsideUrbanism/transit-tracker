@@ -16,7 +16,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | North County Transit District                          | California, USA                            | ✅             |
 | San Diego Metropolitan Transit System (MTS)            | California, USA                            | ✅             |
 | Regional Transportation District (RTD)                 | Colorado, USA (Denver)                     | ✅             |
-| NJ Transit                                             | New Jersey, USA                            |               |
+| NJ Transit                                             | New Jersey, USA                            |                |
 | MTA Buses                                              | New York, USA                              | ✅             |
 | NYC Subway                                             | New York, USA                              |                |
 | TriMet                                                 | Oregon, USA                                | ✅             |
@@ -35,8 +35,10 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Kitsap Transit                                         | Washington State, USA                      | ✅             |
 | Whatcom Transportation Authority                       | Washington State, USA                      | ✅             |
 | C-TRAN                                                 | Washington State, USA (Clark County)       |                |
+| City of Madison Metro                                  | Wisconsin, USA                             | ✅             |
 | TransLink                                              | British Columbia, Canada (Metro Vancouver) | ✅             |
 | Winnipeg Transit                                       | Manitoba, Canada                           |                |
+| Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                   | ✅             |
 | Toronto Transit Commission (TTC)                       | Ontario, Canada                            | ✅             |
 | Verkehrsverbund Berlin-Brandenburg (VBB)               | Germany                                    |                |
 
