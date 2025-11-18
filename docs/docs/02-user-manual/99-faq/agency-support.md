@@ -17,7 +17,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | San Diego Metropolitan Transit System (MTS)            | San Diego, California, USA                | ✅             |
 | Regional Transportation District (RTD)                 | Denver, Colorado, USA                     | ✅             |
 | Chicago Transit Authority (CTA)                        | Chicago, Illinois, USA                    |                |
-| Metra                                                  | Chicago, Illinois, USA                    |                |
+| Metra                                                  | Chicago, Illinois, USA                    | ✅             |
 | Massachusetts Bay Transportation Authority (MBTA)      | Massachusetts, USA                        | ✅             |
 | NJ Transit                                             | New Jersey, USA                           |                |
 | MTA Buses                                              | New York, USA                             | ✅             |
@@ -46,6 +46,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Toronto Transit Commission (TTC)                       | Toronto, Ontario, Canada                  | ✅             |
 | Ilévia                                                 | Lille, France                             | ✅             |
 | Verkehrsverbund Berlin-Brandenburg (VBB)               | Berlin-Brandenburg, Germany               |                |
+| Tranvías de La Coruña                                  | La Coruña, Spain                          |                |
 
 ### Why is there no real-time data for some agencies?
 
