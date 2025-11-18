@@ -10,39 +10,39 @@ Due to this, we strongly recommend [hosting your own API server](../../03-advanc
 
 Our Transit Tracker API server currently syndicates data from the following agencies.
 
-| Agency                                                 | Service Area                               | Real-Time Data |
-| ------------------------------------------------------ | ------------------------------------------ | -------------- |
-| Amtrak                                                 | USA                                        | ✅             |
-| North County Transit District                          | California, USA                            | ✅             |
-| San Diego Metropolitan Transit System (MTS)            | California, USA                            | ✅             |
-| Regional Transportation District (RTD)                 | Colorado, USA (Denver)                     | ✅             |
-| Chicago Transit Authority (CTA)                        | Illinois, USA (Chicago)                    |                |
-| Massachusetts Bay Transportation Authority (MBTA)      | Massachusetts, USA                         | ✅             |
-| NJ Transit                                             | New Jersey, USA                            |                |
-| MTA Buses                                              | New York, USA                              | ✅             |
-| NYC Subway                                             | New York, USA                              |                |
-| TriMet                                                 | Oregon, USA                                | ✅             |
-| Portland Streetcar                                     | Oregon, USA                                | ✅             |
-| Dallas Area Rapid Transit (DART)                       | Texas, USA                                 |                |
-| DASH                                                   | Virginia, USA (Alexandria)                 |                |
-| Washington Metropolitan Area Transit Authority (WMATA) | Washington, D.C., USA                      | ✅             |
-| King County Metro                                      | Washington State, USA                      | ✅             |
-| Sound Transit                                          | Washington State, USA                      | ✅             |
-| Pierce Transit                                         | Washington State, USA                      | ✅             |
-| Community Transit                                      | Washington State, USA                      | ✅             |
-| Intercity Transit                                      | Washington State, USA                      | ✅             |
-| Washington State Ferries                               | Washington State, USA                      | ✅             |
-| Seattle Center Monorail                                | Washington State, USA                      | ✅             |
-| Everett Transit                                        | Washington State, USA                      | ✅             |
-| Kitsap Transit                                         | Washington State, USA                      | ✅             |
-| Whatcom Transportation Authority                       | Washington State, USA                      | ✅             |
-| C-TRAN                                                 | Washington State, USA (Clark County)       |                |
-| City of Madison Metro                                  | Wisconsin, USA                             | ✅             |
-| TransLink                                              | British Columbia, Canada (Metro Vancouver) | ✅             |
-| Winnipeg Transit                                       | Manitoba, Canada                           |                |
-| Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                   | ✅             |
-| Toronto Transit Commission (TTC)                       | Ontario, Canada                            | ✅             |
-| Verkehrsverbund Berlin-Brandenburg (VBB)               | Germany                                    |                |
+| Agency                                                 | Service Area                              | Real-Time Data |
+| ------------------------------------------------------ | ----------------------------------------- | -------------- |
+| Amtrak                                                 | USA                                       | ✅             |
+| North County Transit District                          | California, USA                           | ✅             |
+| San Diego Metropolitan Transit System (MTS)            | San Diego, California, USA                | ✅             |
+| Regional Transportation District (RTD)                 | Denver, Colorado, USA                     | ✅             |
+| Chicago Transit Authority (CTA)                        | Chicago, Illinois, USA                    |                |
+| Massachusetts Bay Transportation Authority (MBTA)      | Massachusetts, USA                        | ✅             |
+| NJ Transit                                             | New Jersey, USA                           |                |
+| MTA Buses                                              | New York, USA                             | ✅             |
+| NYC Subway                                             | New York, USA                             |                |
+| TriMet                                                 | Oregon, USA                               | ✅             |
+| Portland Streetcar                                     | Portland, Oregon, USA                     | ✅             |
+| Dallas Area Rapid Transit (DART)                       | Dallas, Texas, USA                        |                |
+| DASH                                                   | Alexandria, Virginia, USA                 |                |
+| Washington Metropolitan Area Transit Authority (WMATA) | Washington, D.C., USA                     | ✅             |
+| King County Metro                                      | King County, Washington, USA              | ✅             |
+| Sound Transit                                          | Washington, USA                           | ✅             |
+| Pierce Transit                                         | Pierce County, Washington, USA            | ✅             |
+| Community Transit                                      | Snohomish County, Washington, USA         | ✅             |
+| Intercity Transit                                      | Thurston County, Washington, USA          | ✅             |
+| Washington State Ferries                               | Washington, USA                           | ✅             |
+| Seattle Center Monorail                                | Seattle, Washington, USA                  | ✅             |
+| Everett Transit                                        | Everett, Washington, USA                  | ✅             |
+| Kitsap Transit                                         | Kitsap County, Washington, USA            | ✅             |
+| Whatcom Transportation Authority                       | Whatcom County, Washington, USA           | ✅             |
+| C-TRAN                                                 | Clark County, Washington, USA             |                |
+| City of Madison Metro                                  | Madison, Wisconsin, USA                   | ✅             |
+| TransLink                                              | Metro Vancouver, British Columbia, Canada | ✅             |
+| Winnipeg Transit                                       | Winnipeg, Manitoba, Canada                |                |
+| Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                  | ✅             |
+| Toronto Transit Commission (TTC)                       | Toronto, Ontario, Canada                  | ✅             |
+| Verkehrsverbund Berlin-Brandenburg (VBB)               | Berlin-Brandenburg, Germany               |                |
 
 ### Why is there no real-time data for some agencies?
 
