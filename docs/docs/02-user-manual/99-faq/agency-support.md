@@ -1,78 +1,44 @@
 # Which transit agencies are supported?
 
-Eastside Urbanism's Transit Tracker API server currently supports these transit agencies.
+Transit Tracker can support pretty much any transit agency with a GTFS feed, but it must be added to the API server you are using first. (This is the service which takes information from a transit agency and formats it for your Transit Tracker to display.)
+
+Eastside Urbanism hosts a community API server for those who do not want to set up their own. However, since it is volunteer-run there is no guarantee of uptime, timely updates, etc. The hosting is paid for out-of-pocket by volunteers, so we must limit the number of agencies we support to keep costs manageable.
+
+Due to this, we strongly recommend [hosting your own API server](../../03-advanced/api-server.md) if you are able to.
+
+Our Transit Tracker API server currently syndicates data from the following agencies.
 
 ## Supported Agencies
 
-### USA
-
-- Amtrak
-
-#### California
-
-- North County Transit District
-- San Diego Metropolitan Transit System (MTS)
-
-#### Colorado
-
-- Regional Transportation District (RTD) (Denver)
-
-#### New Jersey
-
-- NJ Transit
-
-#### New York
-
-- MTA Buses & NYC Subway
-
-#### Oregon
-
-- TriMet
-- Portland Streetcar
-
-#### Texas
-
-- Dallas Area Rapid Transit (DART)
-
-#### Virginia
-
-- DASH (Alexandria)
-
-#### Washington, D.C.
-
-- Washington Metropolitan Area Transit Authority (WMATA)
-
-#### Washington State
-
-- King County Metro (buses and Seattle Streetcar)
-- Sound Transit (Link light rail, ST Express buses, and Sounder)
-- Pierce Transit
-- Community Transit
-- Intercity Transit
-- Washington State Ferries
-- Seattle Center Monorail
-- Everett Transit
-- Kitsap Transit
-- Whatcom Transportation Authority
-- C-TRAN (Clark County)
-
-### Canada
-
-#### British Columbia
-
-- TransLink (Metro Vancouver)
-
-#### Manitoba
-
-- Winnipeg Transit
-
-#### Ontario
-
-- Toronto Transit Commission (TTC)
-
-### Germany
-
-- Verkehrsverbund Berlin-Brandenburg (VBB)
+| Agency                                                 | Service Area                               | Real-Time Data |
+| ------------------------------------------------------ | ------------------------------------------ | -------------- |
+| Amtrak                                                 | USA                                        | ✅             |
+| North County Transit District                          | California, USA                            | ✅             |
+| San Diego Metropolitan Transit System (MTS)            | California, USA                            | ✅             |
+| Regional Transportation District (RTD)                 | Colorado, USA (Denver)                     | ✅             |
+| NJ Transit                                             | New Jersey, USA                            |               |
+| MTA Buses                                              | New York, USA                              | ✅             |
+| NYC Subway                                             | New York, USA                              |                |
+| TriMet                                                 | Oregon, USA                                | ✅             |
+| Portland Streetcar                                     | Oregon, USA                                | ✅             |
+| Dallas Area Rapid Transit (DART)                       | Texas, USA                                 |                |
+| DASH                                                   | Virginia, USA (Alexandria)                 |                |
+| Washington Metropolitan Area Transit Authority (WMATA) | Washington, D.C., USA                      | ✅             |
+| King County Metro                                      | Washington State, USA                      | ✅             |
+| Sound Transit                                          | Washington State, USA                      | ✅             |
+| Pierce Transit                                         | Washington State, USA                      | ✅             |
+| Community Transit                                      | Washington State, USA                      | ✅             |
+| Intercity Transit                                      | Washington State, USA                      | ✅             |
+| Washington State Ferries                               | Washington State, USA                      | ✅             |
+| Seattle Center Monorail                                | Washington State, USA                      | ✅             |
+| Everett Transit                                        | Washington State, USA                      | ✅             |
+| Kitsap Transit                                         | Washington State, USA                      | ✅             |
+| Whatcom Transportation Authority                       | Washington State, USA                      | ✅             |
+| C-TRAN                                                 | Washington State, USA (Clark County)       |                |
+| TransLink                                              | British Columbia, Canada (Metro Vancouver) | ✅             |
+| Winnipeg Transit                                       | Manitoba, Canada                           |                |
+| Toronto Transit Commission (TTC)                       | Ontario, Canada                            | ✅             |
+| Verkehrsverbund Berlin-Brandenburg (VBB)               | Germany                                    |                |
 
 ## Agency not listed?
 
