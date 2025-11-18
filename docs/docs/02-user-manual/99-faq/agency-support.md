@@ -43,6 +43,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Winnipeg Transit                                       | Winnipeg, Manitoba, Canada                |                |
 | Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                  | ✅             |
 | Réseau de transport de la Capitale (RTC)               | Québec City, Québec, Canada               | ✅             |
+| OC Transpo                                             | Ottawa, Ontario, Canada                   | ✅             |
 | Toronto Transit Commission (TTC)                       | Toronto, Ontario, Canada                  | ✅             |
 | Ilévia                                                 | Lille, France                             | ✅             |
 | Verkehrsverbund Berlin-Brandenburg (VBB)               | Berlin-Brandenburg, Germany               |                |
