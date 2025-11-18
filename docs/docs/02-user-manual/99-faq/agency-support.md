@@ -13,6 +13,10 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 - North County Transit District
 - San Diego Metropolitan Transit System (MTS)
 
+#### New Jersey
+
+- NJ Transit
+
 #### New York
 
 - MTA Buses & NYC Subway
