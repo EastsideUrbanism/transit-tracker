@@ -17,6 +17,11 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 
 - MTA Buses & NYC Subway
 
+#### Oregon
+
+- TriMet
+- Portland Streetcar
+
 #### Texas
 
 - Dallas Area Rapid Transit (DART)
@@ -37,6 +42,7 @@ Eastside Urbanism's Transit Tracker API server currently supports these transit 
 - Everett Transit
 - Kitsap Transit
 - Whatcom Transportation Authority
+- C-TRAN (Clark County)
 
 ### Canada
 
