@@ -6,9 +6,9 @@ Eastside Urbanism hosts a community API server for those who do not want to set 
 
 Due to this, we strongly recommend [hosting your own API server](../../03-advanced/api-server.md) if you are able to.
 
-Our Transit Tracker API server currently syndicates data from the following agencies.
-
 ## Supported Agencies
+
+Our Transit Tracker API server currently syndicates data from the following agencies. Agencies without real-time data will still provide static schedule information.
 
 | Agency                                                 | Service Area                               | Real-Time Data |
 | ------------------------------------------------------ | ------------------------------------------ | -------------- |
