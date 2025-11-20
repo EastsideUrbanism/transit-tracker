@@ -25,6 +25,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | TriMet                                                 | Oregon, USA                               | ✅             |
 | Portland Streetcar                                     | Portland, Oregon, USA                     | ✅             |
 | Dallas Area Rapid Transit (DART)                       | Dallas, Texas, USA                        |                |
+| Houston METRO                                          | Houston, Texas, USA                       | ✅             |
 | DASH                                                   | Alexandria, Virginia, USA                 |                |
 | Washington Metropolitan Area Transit Authority (WMATA) | Washington, D.C., USA                     | ✅             |
 | King County Metro                                      | King County, Washington, USA              | ✅             |
@@ -39,6 +40,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Whatcom Transportation Authority                       | Whatcom County, Washington, USA           | ✅             |
 | C-TRAN                                                 | Clark County, Washington, USA             |                |
 | City of Madison Metro                                  | Madison, Wisconsin, USA                   | ✅             |
+| Milwaukee County Transit System (MCTS)                 | Milwaukee, Wisconsin, USA                 | ✅             |
 | TransLink                                              | Metro Vancouver, British Columbia, Canada | ✅             |
 | Winnipeg Transit                                       | Winnipeg, Manitoba, Canada                |                |
 | Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                  | ✅             |
