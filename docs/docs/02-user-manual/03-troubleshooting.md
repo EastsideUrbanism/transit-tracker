@@ -1,6 +1,6 @@
 # Troubleshooting & Support
 
-If you're experiencing issues with your Transit Tracker, please check the following troubleshooting steps. If you still need help, please open a [GitHub issue](https://github.com/EastsideUrbanism/transit-tracker/issues).
+If you're experiencing issues with your Transit Tracker, please check the following troubleshooting steps. If you still need help, you can [ask on GitHub Discussions](https://github.com/EastsideUrbanism/transit-tracker/discussions/categories/q-a).
 
 ## Status Messages
 
