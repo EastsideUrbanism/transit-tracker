@@ -2,6 +2,12 @@
 
 If you're experiencing issues with your Transit Tracker, please check the following troubleshooting steps. If you still need help, you can [ask on GitHub Discussions](https://github.com/EastsideUrbanism/transit-tracker/discussions/categories/q-a).
 
+## Common Issues
+
+### Display is completely blank when powered on
+
+Try using the [brightness buttons](./99-faq/brightness.mdx) to increase the brightness of the display.
+
 ## Status Messages
 
 If you see a status message on your Transit Tracker instead of the schedule, that can help diagnose an issue. Here are the possible status messages and their meanings.
