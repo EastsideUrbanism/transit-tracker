@@ -41,6 +41,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | C-TRAN                                                 | Clark County, Washington, USA             |                |
 | City of Madison Metro                                  | Madison, Wisconsin, USA                   | ✅             |
 | Milwaukee County Transit System (MCTS)                 | Milwaukee, Wisconsin, USA                 | ✅             |
+| Edmondton Transit System (ETS)                         | Edmonton, Alberta, Canada                 | ✅             |
 | TransLink                                              | Metro Vancouver, British Columbia, Canada | ✅             |
 | Winnipeg Transit                                       | Winnipeg, Manitoba, Canada                |                |
 | Société de transport de Montréal (STM)                 | Montréal, Québec, Canada                  | ✅             |
