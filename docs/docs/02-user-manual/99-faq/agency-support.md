@@ -37,6 +37,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Seattle Center Monorail                                | Seattle, Washington, USA                  | ✅             |
 | Everett Transit                                        | Everett, Washington, USA                  | ✅             |
 | Kitsap Transit                                         | Kitsap County, Washington, USA            | ✅             |
+| Link Transit                                           | Wenatchee, Washington, USA                | ✅             |
 | Whatcom Transportation Authority                       | Whatcom County, Washington, USA           | ✅             |
 | C-TRAN                                                 | Clark County, Washington, USA             |                |
 | City of Madison Metro                                  | Madison, Wisconsin, USA                   | ✅             |
