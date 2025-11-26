@@ -8,6 +8,18 @@ If you're experiencing issues with your Transit Tracker, please check the follow
 
 Try using the [brightness buttons](./99-faq/brightness.mdx) to increase the brightness of the display.
 
+### Trouble pushing configuration via USB
+
+If you are having trouble pushing your Transit Tracker's configuration via USB, please try the following steps:
+
+1. Unplug your Transit Tracker from your computer and plug it back in.
+2. Restart your browser.
+3. If you have any routes set in the configurator, try removing them and pushing an empty configuration first.
+4. Try re-running initial setup from the configurator.
+5. Try using a different USB cable (some cables are power-only and do not support data transfer).
+6. Try using a different USB port on your computer.
+7. If you're using a USB hub, try connecting directly to your computer instead.
+
 ## Status Messages
 
 If you see a status message on your Transit Tracker instead of the schedule, that can help diagnose an issue. Here are the possible status messages and their meanings.

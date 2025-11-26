@@ -21,7 +21,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Massachusetts Bay Transportation Authority (MBTA)      | Massachusetts, USA                        | ✅             |
 | NJ Transit                                             | New Jersey, USA                           |                |
 | MTA Buses                                              | New York, USA                             | ✅             |
-| NYC Subway                                             | New York, USA                             |                |
+| NYC Subway                                             | New York, USA                             | ✅             |
 | TriMet                                                 | Oregon, USA                               | ✅             |
 | Portland Streetcar                                     | Portland, Oregon, USA                     | ✅             |
 | Dallas Area Rapid Transit (DART)                       | Dallas, Texas, USA                        |                |
