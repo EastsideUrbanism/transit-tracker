@@ -16,7 +16,7 @@ esp32:
     type: arduino
 
 external_components:
-  - source: github://TillFleisch/ESPHome-HUB75-MatrixDisplayWrapper@main
+  - source: github://avwuff/ESPHome-HUB75-MatrixDisplayWrapper@4fc1f26500b97a39693cd8af4ba2abb75f83ce0b
   - source: github://tjhorner/esphome-custom-components@1909519fa93747c232b5dbc41f5ada3c41cc2257
     components: [ serial_rpc ]
   - source: github://tjhorner/esphome-transit-tracker@main
