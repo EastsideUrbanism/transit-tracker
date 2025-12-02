@@ -26,7 +26,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Portland Streetcar                                     | Portland, Oregon, USA                     | ✅             |
 | Dallas Area Rapid Transit (DART)                       | Dallas, Texas, USA                        |                |
 | Houston METRO                                          | Houston, Texas, USA                       | ✅             |
-| DASH                                                   | Alexandria, Virginia, USA                 |                |
+| DASH                                                   | Alexandria, Virginia, USA                 | ✅             |
 | Washington Metropolitan Area Transit Authority (WMATA) | Washington, D.C., USA                     | ✅             |
 | King County Metro                                      | King County, Washington, USA              | ✅             |
 | Sound Transit                                          | Washington, USA                           | ✅             |
