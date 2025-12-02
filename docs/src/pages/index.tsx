@@ -51,6 +51,10 @@ function BlueskyEmbeds(): ReactNode {
 
   const postData = [
     {
+      did: "did:plc:rcvzfbkjuznscymsvbgszpln",
+      rkey: "3m6j7cvsyjk26",
+    },
+    {
       did: "did:plc:qg74h56j6z4l7pbyueych7qi",
       rkey: "3ljy6vxmft22f",
     },
