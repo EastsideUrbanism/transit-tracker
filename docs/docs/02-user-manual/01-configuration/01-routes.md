@@ -42,3 +42,10 @@ This option controls how the routes are displayed in the list. You can choose be
 
 - **Show trips from all routes sequentially**: This will show all trips from all routes in a single list, sorted by time. This is the default option.
 - **Show only the next trip for each route**: This will show _only_ the next trip for each selected route. This is useful if one of your selected routes is much more frequent than others.
+
+## Headsign Overflow
+
+The headsign is the piece of text which typically indicates the destination of a trip. These can often be longer than the available width on the display, so you can choose how to handle this. We generally recommend setting up [abbreviations](./02-customize.md#abbreviations) so that the entire headsign can fit on the display, but if that's not possible you can choose one of the following options:
+
+- **Hidden**: The headsign text will be cut off.
+- **Scroll**: The headsign will scroll across the display to reveal the full text.
