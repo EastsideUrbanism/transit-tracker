@@ -10,6 +10,8 @@ Try using the [brightness buttons](./99-faq/brightness.mdx) to increase the brig
 
 ### Trouble pushing configuration via USB
 
+_Related error messages_: "Liveness check timed out", "Not connected", "Request timed out"
+
 If you are having trouble pushing your Transit Tracker's configuration via USB, please try the following steps:
 
 1. Unplug your Transit Tracker from your computer and plug it back in.
