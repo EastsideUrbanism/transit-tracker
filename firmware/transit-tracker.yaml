@@ -84,7 +84,8 @@ button:
           global_preferences->sync();
 
 text:
-  - platform: template
+  - &config_text_common
+    platform: template
     id: base_url_config
     mode: text
     optimistic: true
@@ -93,42 +94,58 @@ text:
       then:
         lambda: |
           id(tracker).set_base_url(id(base_url_config)->state);
-  - platform: template
+  - <<: *config_text_common
     id: feed_code_config
-    mode: text
-    optimistic: true
-    restore_value: true
     on_value:
       then:
         lambda: |
           id(tracker).set_feed_code(id(feed_code_config)->state);
-  - platform: template
+  - <<: *config_text_common
     id: schedule_config
-    mode: text
-    optimistic: true
-    restore_value: true
     on_value:
       then:
         lambda: |
           id(tracker).set_schedule_string(id(schedule_config)->state);
-  - platform: template
+  - <<: *config_text_common
     id: abbreviations_config
-    mode: text
-    optimistic: true
-    restore_value: true
     on_value:
       then:
         lambda: |
           id(tracker).set_abbreviations_from_text(id(abbreviations_config)->state);
-  - platform: template
+  - <<: *config_text_common
     id: route_styles_config
-    mode: text
-    optimistic: true
-    restore_value: true
     on_value:
       then:
         lambda: |
           id(tracker).set_route_styles_from_text(id(route_styles_config)->state);
+  - <<: *config_text_common
+    id: now_str_config
+    initial_value: "min"
+    on_value:
+      then:
+        lambda: |-
+          id(tracker).get_localization()->set_now_string(id(now_str_config)->state);
+  - <<: *config_text_common
+    id: min_long_str_config
+    initial_value: "min"
+    on_value:
+      then:
+        lambda: |-
+          id(tracker).get_localization()->set_minutes_long_string(id(min_long_str_config)->state);
+  - <<: *config_text_common
+    id: min_short_str_config
+    initial_value: "m"
+    on_value:
+      then:
+        lambda: |-
+          id(tracker).get_localization()->set_minutes_short_string(id(min_short_str_config)->state);
+  - <<: *config_text_common
+    id: hours_short_str_config
+    initial_value: "h"
+    on_value:
+      then:
+        lambda: |-
+          id(tracker).get_localization()->set_hours_short_string(id(hours_short_str_config)->state);
 
 select:
   - platform: template
