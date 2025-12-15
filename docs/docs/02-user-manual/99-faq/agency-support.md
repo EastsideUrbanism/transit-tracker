@@ -24,6 +24,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | NYC Subway                                             | New York, USA                             | ✅             |
 | TriMet                                                 | Oregon, USA                               | ✅             |
 | Portland Streetcar                                     | Portland, Oregon, USA                     | ✅             |
+| SEPTA                                                  | Philadelphia, Pennsylvania, USA           | ✅             |
 | Dallas Area Rapid Transit (DART)                       | Dallas, Texas, USA                        |                |
 | Houston METRO                                          | Houston, Texas, USA                       | ✅             |
 | DASH                                                   | Alexandria, Virginia, USA                 | ✅             |
