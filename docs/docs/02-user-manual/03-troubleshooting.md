@@ -22,6 +22,20 @@ If you are having trouble pushing your Transit Tracker's configuration via USB, 
 6. Try using a different USB port on your computer.
 7. If you're using a USB hub, try connecting directly to your computer instead.
 
+### Can't flash firmware on Linux
+
+If you are using a Linux machine and are having trouble flashing the firmware, you may need to give your user permission to access the USB device. For most distributions, you can follow these steps:
+
+1. Run the following command to add your user to the `dialout` group:
+   
+   ```bash
+   sudo usermod -aG dialout $USER
+   ```
+2. Log out and log back in for the group change to take effect.
+3. Try flashing the firmware again.
+
+If it's still not working, consult your distribution's documentation for more information on managing USB device permissions. If you are using something like Flatpak or Snap to run your browser, you may need to give it additional permissions to access USB devices.
+
 ## Status Messages
 
 If you see a status message on your Transit Tracker instead of the schedule, that can help diagnose an issue. Here are the possible status messages and their meanings.

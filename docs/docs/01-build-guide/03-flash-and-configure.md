@@ -4,6 +4,10 @@ Next, we will flash the Transit Tracker firmware to the Matrix Portal board, con
 
 ## Flash Firmware
 
+:::note
+If you're flashing on a Linux machine, see [this section](../02-user-manual/03-troubleshooting.md#cant-flash-firmware-on-linux) regarding permissions if you are having trouble.
+:::
+
 1. Plug the board into your computer.
 2. Go to the <a href="/configurator" target="_blank">configurator</a> and press "Initial setup".
 3. Hold the "Boot" button on the board. While continuing to hold "Boot", press "Reset" at the same time, then let go of both buttons. The board is successfully in flashing mode if you don't see anything on the displays.
