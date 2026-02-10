@@ -16,7 +16,6 @@ esp32:
     type: arduino
 
 external_components:
-  - source: github://avwuff/ESPHome-HUB75-MatrixDisplayWrapper@4fc1f26500b97a39693cd8af4ba2abb75f83ce0b
   - source: github://tjhorner/esphome-custom-components@4cb0e183748b4b616fa1a09f9457591d44c91902
     components: [ serial_rpc ]
   - source: github://tjhorner/esphome-transit-tracker@main
@@ -192,19 +191,14 @@ select:
         lambda: |-
           id(tracker).set_list_mode(id(list_mode_config)->state);
 
-number:
-  - platform: hub75_matrix_display
-    matrix_id: matrix
-    id: display_brightness_number
-
 output:
   - platform: template
     id: display_brightness_output
     type: float
     write_action:
-      - number.set:
-          id: display_brightness_number
-          value: !lambda return state * 255.0;
+      - hub75.set_brightness:
+          id: matrix
+          brightness: !lambda return state * 255.0;
 
 light:
   - platform: monochromatic
@@ -262,28 +256,20 @@ binary_sensor:
             up: !lambda "return id(flip_display_config).state;"
 
 display:
-  - platform: hub75_matrix_display
+  - platform: hub75
     id: matrix
+    board: adafruit-matrix-portal-s3
+    double_buffer: true
     update_interval: 32ms
-    width: 64
-    height: 32
-    chain_length: 2
-    R1_pin: 42
-    G1_pin: 40
-    B1_pin: 41
-    R2_pin: 38
-    G2_pin: 37
-    B2_pin: 39
-    A_pin: 45
-    B_pin: 36
-    C_pin: 48
-    D_pin: 35
-    E_pin: 21
-    LAT_pin: 47
-    OE_pin: 14
-    CLK_pin: 2
-    clock_phase: false
-    i2sspeed: HZ_20M
+    panel_width: 64
+    panel_height: 32
+    layout_cols: 2
+    # We swap the G and B channels in firmware because the 64x32 panel hardware has them reversed
+    g1_pin: 40
+    b1_pin: 41
+    g2_pin: 37
+    b2_pin: 39
+    e_pin: 21
     brightness: 255
     pages:
       - id: transit_schedule
