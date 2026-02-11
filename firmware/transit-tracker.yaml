@@ -16,8 +16,11 @@ esp32:
     type: arduino
 
 external_components:
-  - source: github://tjhorner/esphome-custom-components@4cb0e183748b4b616fa1a09f9457591d44c91902
-    components: [ serial_rpc ]
+  - source: github://pr#13921
+    components: [ hub75 ]
+    refresh: 1h
+  - source: github://tjhorner/esphome-custom-components@c57ffd46fcf30badb2838421e8ff6cbeb9c1dd06
+    components: [ serial_rpc, lis3dh ]
   - source: github://tjhorner/esphome-transit-tracker@main
     refresh: 0s
 
@@ -49,7 +52,6 @@ update:
 switch:
   - platform: template
     id: flip_display_config
-    name: "Flip Display"
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
@@ -254,6 +256,36 @@ binary_sensor:
         - script.execute:
             id: dim_display
             up: !lambda "return id(flip_display_config).state;"
+
+i2c:
+  sda: GPIO16
+  scl: GPIO17
+
+lis3dh:
+  range: 2G
+  data_rate: 1HZ
+  resolution: HIGH_RES
+  address: 0x19
+  update_interval: 1s
+
+text_sensor:
+  - platform: lis3dh
+    orientation_xy:
+      id: orientation_sensor
+      on_value:
+        then:
+          - if:
+              condition:
+                lambda: |-
+                  return x == "Portrait Upside Down";
+              then:
+                - switch.turn_on: flip_display_config
+          - if:
+              condition:
+                lambda: |-
+                  return x == "Portrait Upright";
+              then:
+                - switch.turn_off: flip_display_config
 
 display:
   - platform: hub75
