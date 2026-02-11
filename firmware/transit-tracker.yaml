@@ -20,7 +20,7 @@ external_components:
     components: [ hub75 ]
     refresh: 1h
   - source: github://tjhorner/esphome-custom-components@c57ffd46fcf30badb2838421e8ff6cbeb9c1dd06
-    components: [ serial_rpc, lis3dh ]
+    components: [ serial_rpc, lis3dh, project_version ]
   - source: github://tjhorner/esphome-transit-tracker@main
     refresh: 0s
 
@@ -269,6 +269,8 @@ lis3dh:
   update_interval: 1s
 
 text_sensor:
+  - platform: project_version
+    id: project_version_text
   - platform: lis3dh
     orientation_xy:
       id: orientation_sensor
