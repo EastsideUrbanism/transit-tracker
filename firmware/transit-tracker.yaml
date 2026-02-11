@@ -159,7 +159,7 @@ select:
     on_value:
       then:
         lambda: |-
-          id(tracker).set_display_departure_times(id(time_display_config)->state == "departure");
+          id(tracker).set_display_departure_times(id(time_display_config)->current_option() == "departure");
   - platform: template
     id: time_units_config
     optimistic: true
@@ -172,9 +172,9 @@ select:
       then:
         lambda: |-
           transit_tracker::UnitDisplay unit_display;
-          if (id(time_units_config)->state == "long") {
+          if (id(time_units_config)->current_option() == "long") {
             unit_display = transit_tracker::UnitDisplay::UNIT_DISPLAY_LONG;
-          } else if (id(time_units_config)->state == "short") {
+          } else if (id(time_units_config)->current_option() == "short") {
             unit_display = transit_tracker::UnitDisplay::UNIT_DISPLAY_SHORT;
           } else {
             unit_display = transit_tracker::UnitDisplay::UNIT_DISPLAY_NONE;
@@ -191,7 +191,7 @@ select:
     on_value:
       then:
         lambda: |-
-          id(tracker).set_list_mode(id(list_mode_config)->state);
+          id(tracker).set_list_mode(id(list_mode_config)->current_option());
 
 output:
   - platform: template
