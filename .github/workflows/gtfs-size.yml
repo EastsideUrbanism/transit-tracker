@@ -44,25 +44,32 @@ jobs:
       - name: Run database migrations
         run: pnpm gtfs:db:migrate
 
-      - name: Get feed URL from command
+      - name: Get feed URLs from command
         id: get-feed-url
         shell: bash
         run: |
           COMMENT_BODY="${{ github.event.comment.body }}"
-          FEED_URL=$(echo "$COMMENT_BODY" | awk '{print $2}')
-          echo "FEED_URL=$FEED_URL" >> $GITHUB_OUTPUT
+          FEED_URLS=$(echo "$COMMENT_BODY" | awk '{$1=""; print substr($0,2)}')
+          echo "FEED_URLS=$FEED_URLS" >> $GITHUB_OUTPUT
 
       - name: Create feeds config
         run: |
           cat > feeds.yaml <<EOL
           feeds:
-            test:
-              name: Test Feed
-              description: Test feed
+          EOL
+
+          COUNTER=1
+          for URL in ${{ steps.get-feed-url.outputs.FEED_URLS }}; do
+          cat >> feeds.yaml <<EOL
+            test${COUNTER}:
+              name: Test Feed ${COUNTER}
+              description: Test feed ${COUNTER}
               gtfs:
                 static:
-                  url: "${{ steps.get-feed-url.outputs.FEED_URL }}"
+                  url: "${URL}"
           EOL
+          COUNTER=$((COUNTER + 1))
+          done
 
       - name: Run GTFS sync
         run: pnpm cli sync
@@ -79,7 +86,7 @@ jobs:
           DB_SIZE_BYTES=$(psql -h localhost -U postgres -d gtfs -c "SELECT pg_database_size('gtfs');" -t | xargs)
           echo "DB_SIZE_BYTES=$DB_SIZE_BYTES" >> $GITHUB_OUTPUT
 
-          TABLE_SIZES=$(psql -h localhost -U postgres -d gtfs -c "select replace(inf.table_name, '__test', '') as table_name, pg_size_pretty(pg_total_relation_size(quote_ident(table_name))) as size, pg_total_relation_size(quote_ident(table_name)) as size_bytes from information_schema.tables inf where table_schema = 'public' and inf.table_name like '%__test' order by size_bytes desc;" --pset="footer=off")
+          TABLE_SIZES=$(psql -h localhost -U postgres -d gtfs -c "with sizes as ( select split_part(inf.table_name, '__', 1) as table_name, pg_total_relation_size(quote_ident(table_name)) as size_bytes from information_schema.tables inf where table_schema = 'public' and table_name like '%\_\_%' order by size_bytes desc ) select table_name, pg_size_pretty(sum(size_bytes)) as size, sum(size_bytes) as size_bytes from sizes group by table_name order by size_bytes desc;" --pset="footer=off")
           echo "TABLE_SIZES<<EOF" >> $GITHUB_OUTPUT
           echo "$TABLE_SIZES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
