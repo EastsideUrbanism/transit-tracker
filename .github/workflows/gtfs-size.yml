@@ -90,7 +90,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           COMMENT="The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**."
-          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT"
+          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT" -R "${{ github.repository }}"
       
       - name: Comment with failure
         env:
@@ -98,7 +98,7 @@ jobs:
         if: failure()
         run: |
           COMMENT="There was an error processing [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}). Please check [the logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details."
-          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT"
+          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT" -R "${{ github.repository }}"
 
       - name: Tear down compose stack
         if: always()
