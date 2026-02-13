@@ -1,0 +1,101 @@
+name: Check GTFS size
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  check-gtfs-size:
+    runs-on: ubuntu-latest
+    if: github.actor_id == '2646487' && contains(github.event.comment.body, '/gtfs-size')
+
+    env:
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/gtfs?sslmode=disable"
+      REDIS_URL: "redis://localhost:6379"
+
+    steps:
+      - name: Check out transit-tracker-api
+        uses: actions/checkout@v6
+        with:
+          repository: tjhorner/transit-tracker-api
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run compose stack
+        run: docker compose -f docker-compose.dev.yml up -d && sleep 10
+
+      - name: Run database migrations
+        run: pnpm gtfs:db:migrate
+
+      - name: Get feed URL from command
+        id: get-feed-url
+        shell: bash
+        run: |
+          COMMENT_BODY="${{ github.event.comment.body }}"
+          FEED_URL=$(echo "$COMMENT_BODY" | awk '{print $2}')
+          echo "FEED_URL=$FEED_URL" >> $GITHUB_OUTPUT
+
+      - name: Create feeds config
+        run: |
+          cat > feeds.yaml <<EOL
+          feeds:
+            test:
+              name: Test Feed
+              description: Test feed
+              gtfs:
+                static:
+                  url: "${{ steps.get-feed-url.outputs.FEED_URL }}"
+          EOL
+
+      - name: Run GTFS sync
+        run: pnpm cli sync
+      
+      - name: Get database size
+        id: db-size
+        shell: bash
+        env:
+          PGPASSWORD: postgres
+        run: |
+          DB_SIZE=$(psql -h localhost -U postgres -d gtfs -c "SELECT pg_size_pretty(pg_database_size('gtfs'));" -t | xargs)
+          echo "DB_SIZE=$DB_SIZE" >> $GITHUB_OUTPUT
+
+      - name: Comment with GTFS size
+        run: |
+          COMMENT="The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**."
+          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT"
+      
+      - name: Comment with failure
+        if: failure()
+        run: |
+          COMMENT="There was an error processing [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}). Please check [the logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for more details."
+          gh issue comment ${{ github.event.issue.number }} --body "$COMMENT"
+
+      - name: Tear down compose stack
+        if: always()
+        run: docker compose -f docker-compose.dev.yml down
