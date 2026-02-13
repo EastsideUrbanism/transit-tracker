@@ -85,7 +85,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          COMMENT=$"The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**.\n\n## Table sizes\n\`\`\`\n${{ steps.db-size.outputs.TABLE_SIZES }}\n\`\`\`"
+          COMMENT=$'The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**.\n\n## Table sizes\n```\n${{ steps.db-size.outputs.TABLE_SIZES }}\n```'
           gh issue comment ${{ github.event.issue.number }} --body "$COMMENT" -R "${{ github.repository }}"
 
       - name: Comment with failure
