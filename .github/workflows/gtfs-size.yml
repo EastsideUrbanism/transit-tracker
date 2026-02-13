@@ -13,6 +13,10 @@ jobs:
       DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/gtfs?sslmode=disable"
       REDIS_URL: "redis://localhost:6379"
 
+    permissions:
+      contents: read
+      issues: write
+
     steps:
       - name: Check out transit-tracker-api
         uses: actions/checkout@v6
@@ -75,7 +79,7 @@ jobs:
 
       - name: Run GTFS sync
         run: pnpm cli sync
-      
+
       - name: Get database size
         id: db-size
         shell: bash
@@ -91,7 +95,7 @@ jobs:
         run: |
           COMMENT="The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**."
           gh issue comment ${{ github.event.issue.number }} --body "$COMMENT" -R "${{ github.repository }}"
-      
+
       - name: Comment with failure
         env:
           GH_TOKEN: ${{ github.token }}
