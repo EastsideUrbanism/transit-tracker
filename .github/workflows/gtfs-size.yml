@@ -24,29 +24,16 @@ jobs:
           repository: tjhorner/transit-tracker-api
           ref: main
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "22"
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 10
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Cache pnpm dependencies
-        uses: actions/cache@v3
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -98,7 +85,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          COMMENT="The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**.\n\n## Table sizes\n\`\`\`\n${{ steps.db-size.outputs.TABLE_SIZES }}\n\`\`\`"
+          COMMENT=$"The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**.\n\n## Table sizes\n\`\`\`\n${{ steps.db-size.outputs.TABLE_SIZES }}\n\`\`\`"
           gh issue comment ${{ github.event.issue.number }} --body "$COMMENT" -R "${{ github.repository }}"
 
       - name: Comment with failure
