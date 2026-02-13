@@ -89,11 +89,16 @@ jobs:
           DB_SIZE=$(psql -h localhost -U postgres -d gtfs -c "SELECT pg_size_pretty(pg_database_size('gtfs'));" -t | xargs)
           echo "DB_SIZE=$DB_SIZE" >> $GITHUB_OUTPUT
 
+          TABLE_SIZES=$(psql -h localhost -U postgres -d gtfs -c "select replace(inf.table_name, '__test', '') as table_name, pg_size_pretty(pg_total_relation_size(quote_ident(table_name))) as size, pg_total_relation_size(quote_ident(table_name)) as size_bytes from information_schema.tables inf where table_schema = 'public' and inf.table_name like '%__test' order by size_bytes desc;" --pset="footer=off")
+          echo "TABLE_SIZES<<EOF" >> $GITHUB_OUTPUT
+          echo "$TABLE_SIZES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Comment with GTFS size
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          COMMENT="The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**."
+          COMMENT="The size of [this GTFS feed](${{ steps.get-feed-url.outputs.FEED_URL }}) when imported is **${{ steps.db-size.outputs.DB_SIZE }}**.\n\n## Table sizes\n\`\`\`\n${{ steps.db-size.outputs.TABLE_SIZES }}\n\`\`\`"
           gh issue comment ${{ github.event.issue.number }} --body "$COMMENT" -R "${{ github.repository }}"
 
       - name: Comment with failure
