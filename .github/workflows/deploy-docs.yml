@@ -10,6 +10,8 @@ on:
         default: "main"
   push:
     branches: [main]
+    paths:
+      - "docs/**"
 
 jobs:
   build_site:
