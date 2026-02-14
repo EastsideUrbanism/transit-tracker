@@ -209,6 +209,10 @@ light:
     output: display_brightness_output
     restore_mode: RESTORE_DEFAULT_ON
 
+status_led:
+  pin:
+    number: GPIO13
+
 script:
   - id: dim_display
     parameters:
