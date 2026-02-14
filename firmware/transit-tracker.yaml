@@ -293,6 +293,11 @@ text_sensor:
               then:
                 - switch.turn_off: flip_display_config
 
+sensor:
+  - platform: uptime
+    type: timestamp
+    name: Uptime
+
 display:
   - platform: hub75
     id: matrix
