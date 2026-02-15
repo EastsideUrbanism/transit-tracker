@@ -5,6 +5,7 @@ esphome:
   name: transit-tracker
   friendly_name: Transit Tracker
   name_add_mac_suffix: true
+  min_version: 2026.1.4
   project:
     name: "Eastside Urbanism.Transit Tracker"
     version: ${project_version}
