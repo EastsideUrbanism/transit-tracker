@@ -5,6 +5,7 @@ esphome:
   name: transit-tracker
   friendly_name: Transit Tracker
   name_add_mac_suffix: true
+  min_version: 2026.1.4
   project:
     name: "Eastside Urbanism.Transit Tracker"
     version: ${project_version}
@@ -209,6 +210,10 @@ light:
     output: display_brightness_output
     restore_mode: RESTORE_DEFAULT_ON
 
+status_led:
+  pin:
+    number: GPIO13
+
 script:
   - id: dim_display
     parameters:
@@ -288,6 +293,11 @@ text_sensor:
                   return x == "Portrait Upright";
               then:
                 - switch.turn_off: flip_display_config
+
+sensor:
+  - platform: uptime
+    type: timestamp
+    name: Uptime
 
 display:
   - platform: hub75
