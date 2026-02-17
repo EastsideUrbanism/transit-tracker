@@ -10,7 +10,7 @@ body:
 
         Thank you for your interest in our Transit Tracker project! Please keep in mind that this project is entirely run by volunteers in their spare time while paying for all associated costs (e.g., hosting) out-of-pocket.
 
-        ⚠️ **Please search for your agency in the [existing issues](https://github.com/EastsideUrbanism/transit-tracker/issues?q=sort:updated-desc%20is:issue%20is:open%20label:%22new%20agency%22) to make sure you aren't submitting a duplicate request.**
+        ⚠️ **Please search for your agency in the [existing issues](https://github.com/EastsideUrbanism/transit-tracker/issues?q=sort:updated-desc%20is:issue%20is:open%20label:%22new%20agency%22) to make sure you aren't submitting a duplicate request.** If you find an existing issue, make sure to give it a 👍 react so we can prioritize based on interest!
 
         Submitting this form **doesn't guarantee** that we will add support for your agency, but we will do our best accommodate as many as we can. In any event, you can always host your own instance of the Transit Tracker API and add support for any agency you'd like. See the section below for more information.
 
