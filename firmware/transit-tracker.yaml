@@ -197,8 +197,8 @@ output:
   - platform: template
     id: display_brightness_output
     type: float
-    min_power:  0.004 # 1/255
-    zero_means_zero: True
+    min_power: 0.004 # 1/255
+    zero_means_zero: true
     write_action:
       - hub75.set_brightness:
           id: matrix
