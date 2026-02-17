@@ -22,6 +22,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | NJ Transit                                             | New Jersey, USA                           |                |
 | MTA Buses                                              | New York, USA                             | ✅             |
 | NYC Subway                                             | New York, USA                             | ✅             |
+| NYC Ferry                                              | New York, USA                             | ✅             |
 | TriMet                                                 | Oregon, USA                               | ✅             |
 | Portland Streetcar                                     | Portland, Oregon, USA                     | ✅             |
 | SEPTA                                                  | Philadelphia, Pennsylvania, USA           | ✅             |
