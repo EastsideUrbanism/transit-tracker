@@ -53,7 +53,7 @@ Our Transit Tracker API server currently syndicates data from the following agen
 | Toronto Transit Commission (TTC)                       | Toronto, Ontario, Canada                  | ✅             |
 | Ilévia                                                 | Lille, France                             | ✅             |
 | Verkehrsverbund Berlin-Brandenburg (VBB)               | Berlin-Brandenburg, Germany               |                |
-| Münchner Verkehrsgesellschaft                          | Munich, Germany                           | ✅             |
+| Münchner Verkehrsgesellschaft (MVG)                    | Munich, Germany                           | ✅             |
 | Tranvías de La Coruña                                  | La Coruña, Spain                          |                |
 
 ### Why is there no real-time data for some agencies?
