@@ -17,7 +17,9 @@ const config: Config = {
 
   onBrokenLinks: "throw",
 
+  themes: ["@docusaurus/theme-mermaid"],
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: "warn",
     },
