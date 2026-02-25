@@ -12,3 +12,4 @@ Please see the complete documentation [here](https://eastsideurbanism.github.io/
 
 - [Transit Tracker API](https://github.com/tjhorner/transit-tracker-api) &mdash; the service which syndicates and streams schedule data to Transit Tracker devices
 - [Transit Tracker ESPHome Component](https://github.com/tjhorner/esphome-transit-tracker) &mdash; the ESPHome custom component which powers the Transit Tracker firmware
+- [Transit Tracker Configurator](https://github.com/tjhorner/transit-tracker-configurator) &mdash; the web-based configuration tool for Transit Tracker devices
