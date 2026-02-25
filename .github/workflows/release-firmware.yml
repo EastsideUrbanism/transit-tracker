@@ -20,7 +20,7 @@ jobs:
           python-version: "3.13"
 
       - name: Install ESPHome
-        run: pip install --user esphome==2026.1.4
+        run: pip install --user esphome==2026.2.1
 
       - name: Compile Release Firmware
         working-directory: firmware
