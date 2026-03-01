@@ -18,27 +18,20 @@ This example will rotate between the arrivals board and a clock page every 5 sec
 
 ```yaml
 display:
-  - platform: hub75_matrix_display
+  - platform: hub75
     id: matrix
-    width: 64
-    height: 32
-    chain_length: 2
-    R1_pin: 42
-    G1_pin: 40
-    B1_pin: 41
-    R2_pin: 38
-    G2_pin: 37
-    B2_pin: 39
-    A_pin: 45
-    B_pin: 36
-    C_pin: 48
-    D_pin: 35
-    E_pin: 21
-    LAT_pin: 47
-    OE_pin: 14
-    CLK_pin: 2
-    clock_phase: false
-    i2sspeed: HZ_20M
+    board: adafruit-matrix-portal-s3
+    double_buffer: true
+    update_interval: 32ms
+    panel_width: 64
+    panel_height: 32
+    layout_cols: 2
+    # We swap the G and B channels in firmware because the 64x32 panel hardware has them reversed
+    g1_pin: 40
+    b1_pin: 41
+    g2_pin: 37
+    b2_pin: 39
+    e_pin: 21
     brightness: 255
     pages:
       - id: transit_schedule
