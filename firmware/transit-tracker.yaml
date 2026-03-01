@@ -29,6 +29,7 @@ logger:
   level: DEBUG
 
 wifi:
+  power_save_mode: none
   ap:
     password: "hunter2hunter2"
 
@@ -275,7 +276,14 @@ lis3dh:
   address: 0x19
   update_interval: 1s
 
+debug:
+
 text_sensor:
+  - platform: debug
+    device:
+      name: "Device Info"
+    reset_reason:
+      name: "Reset Reason"
   - platform: project_version
     id: project_version_text
   - platform: lis3dh
@@ -300,6 +308,10 @@ sensor:
   - platform: uptime
     type: timestamp
     name: Uptime
+  - platform: wifi_signal
+    name: "Wi-Fi Signal"
+    update_interval: 60s
+    entity_category: "diagnostic"
 
 display:
   - platform: hub75
