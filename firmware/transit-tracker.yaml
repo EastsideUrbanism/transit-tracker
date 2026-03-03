@@ -13,8 +13,13 @@ esphome:
 esp32:
   variant: esp32s3
   flash_size: 8MB
+  cpu_frequency: 240MHz
   framework:
     type: arduino
+
+psram:
+  mode: quad
+  speed: 80MHz
 
 external_components:
   - source: github://pr#13921
