@@ -10,6 +10,9 @@ esphome:
     name: "Eastside Urbanism.Transit Tracker"
     version: ${project_version}
 
+dashboard_import:
+  package_import_url: github://EastsideUrbanism/transit-tracker/firmware/transit-tracker.yaml@${project_version}
+
 esp32:
   variant: esp32s3
   flash_size: 8MB

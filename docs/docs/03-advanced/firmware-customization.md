@@ -8,35 +8,30 @@ Since the scope of customization is so wide, this guide will simply provide a fe
 
 You should have ESPHome set up through one of the methods in the "Getting started" section of the [ESPHome website](https://esphome.io/).
 
-## Copy the stock config
+## Create a configuration
 
-Once you have a configuration created, you can copy the [stock config](https://github.com/EastsideUrbanism/transit-tracker/blob/main/firmware/transit-tracker.yaml) and paste it into your configuration file. This will give you a good starting point to work from.
+### Using ESPHome Device Builder
 
-The main section of interest is the `display:` section, which is where the display's rendering is defined. ESPHome supports a powerful "pages" system that allows you to define multiple pages of content that can be cycled through. This can then be controlled at runtime using any method you wish: buttons, on a timer, via an automation, etc.
+If you're using [ESPHome Device Builder](https://esphome.io/guides/getting_started_hassio/#installing-esphome-device-builder), then it should automatically detect and offer to import the configuration for your Transit Tracker.
 
-This example will rotate between the arrivals board and a clock page every 5 seconds:
+### Manually
+
+If you prefer to create your own configuration, you can make a file somewhere named `transit-tracker.yaml` and include the stock firmware package:
+
+```yaml
+packages:
+  transit_tracker: github://EastsideUrbanism/transit-tracker/firmware/transit-tracker.yaml@main
+```
+
+## Extend the configuration
+
+Once you have a configuration ready to go, you can use ESPHome's [extend and remove features](https://esphome.io/components/packages/#extend) to modify it as you wish. Here is an example which removes the built-in IP address page, adds a clock page, and switches between it every five seconds:
 
 ```yaml
 display:
-  - platform: hub75
-    id: matrix
-    board: adafruit-matrix-portal-s3
-    double_buffer: true
-    update_interval: 32ms
-    panel_width: 64
-    panel_height: 32
-    layout_cols: 2
-    # We swap the G and B channels in firmware because the 64x32 panel hardware has them reversed
-    g1_pin: 40
-    b1_pin: 41
-    g2_pin: 37
-    b2_pin: 39
-    e_pin: 21
-    brightness: 255
+  - id: !extend matrix
     pages:
-      - id: transit_schedule
-        lambda: |-
-          id(tracker).draw_schedule();
+      - id: !remove ip_address_page
       - id: clock_page
         lambda: |-
           int x = it.get_width() / 2;
@@ -50,7 +45,3 @@ interval:
       - display.page.show_next: matrix
       - component.update: matrix
 ```
-
-For more information, you can reference the ESPHome [Display](https://esphome.io/components/display/#display-pages) documentation.
-
-Happy hacking!
