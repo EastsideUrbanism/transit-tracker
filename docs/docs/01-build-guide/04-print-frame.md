@@ -1,12 +1,48 @@
 # Part 3: 3D Print Frame
 
-The frame for the display is designed to be 3D printed in **two halves** to accommodate the small build volume of most printers. Each half will fit one display and will be screwed together once assembled. The halves are identical, so you only need to print the same file twice.
+## Choose Frame Design
+
+There are a few different frame designs available depending on your needs. **If you're unsure, we recommend the standard design since it's the most well-documented.** But if you're feeling adventurous or want to customize the design further then feel free to try one of the others!
+
+### Standard
+
+The standard frame is designed to be 3D printed in **two halves** to accommodate the small build volume of most printers. Each half will fit one display and will be screwed together once assembled. The halves are identical, so you only need to print the same file twice.
+
+The [recommendations](#recommendations) below apply to this design.
 
 <iframe src="https://www.printables.com/embed/1332041" width="640" height="190" scrolling="no" frameborder="0"></iframe>
 
-:::tip
-If you're a fan of OpenSCAD and want to make modifications (e.g., for differently sized panels), you can try out [this version](https://github.com/BillKing94/transit-tracker-frame/blob/main/frame.scad) of the frame.
-:::
+### OpenSCAD
+
+This parametric [OpenSCAD](https://openscad.org/) script is based on the design of the standard frame but includes many dials to turn and switches to flip in case you want to easily customize it. For example, you can change the bezel thickness, dimensions of the display panels, and generate a stand to hold it.
+
+The [recommendations](#recommendations) below apply to this design.
+
+[Download it on GitHub](https://github.com/BillKing94/transit-tracker-frame/blob/main/frame.scad)
+
+### Front Plate
+
+![](_img/3-front-plate.jpg)
+
+<details>
+<summary>
+More photos of this frame design
+</summary>
+
+![](_img/front-plate/IMG_0888.jpg)
+
+![](_img/front-plate/IMG_0900.jpg)
+
+![](_img/front-plate/IMG_0901.jpg)
+</details>
+
+This is an experimental design by Diego (`@dpamping`) in our Discord server. It's based on the standard frame design but incorporates a front plate that covers the displays. The front plate is thin enough for the LEDs to shine through when using a lighter color.
+
+It's definitely the most adventurous design, but the results can look really sleek if you're willing to trial-and-error your way through the assembly process.
+
+The recommendations below do **NOT** apply to this design; you will likely need to print it using an SLA printer instead of FDM. The creator of the design had luck getting it printed from [JLC3DP](https://jlc3dp.com/).
+
+[Download STL files](/frame/front-plate.zip)
 
 ## Recommendations
 
