@@ -1,11 +1,13 @@
 substitutions:
+  name: "transit-tracker"
+  friendly_name: "Transit Tracker"
   project_version: "dev"
 
 esphome:
-  name: transit-tracker
-  friendly_name: Transit Tracker
+  name: ${name}
+  friendly_name: ${friendly_name}
   name_add_mac_suffix: true
-  min_version: 2026.2.1
+  min_version: 2026.3.0
   project:
     name: "Eastside Urbanism.Transit Tracker"
     version: ${project_version}
@@ -28,7 +30,7 @@ external_components:
   - source: github://pr#13921
     components: [ hub75 ]
     refresh: 1h
-  - source: github://tjhorner/esphome-custom-components@c57ffd46fcf30badb2838421e8ff6cbeb9c1dd06
+  - source: github://tjhorner/esphome-custom-components@157c1c216ab296fd2cecc197728f9cbb909344d3
     components: [ serial_rpc, lis3dh, project_version ]
   - source: github://tjhorner/esphome-transit-tracker@main
     refresh: 0s
@@ -352,7 +354,9 @@ display:
             return;
           }
 
-          it.printf(x, y, id(pixolletta), COLOR_ON, TextAlign::CENTER, "%s", ip_addresses[0].str().c_str());
+          char ip_address[esphome::network::IP_ADDRESS_BUFFER_SIZE];
+          ip_addresses[0].str_to(ip_address);
+          it.printf(x, y, id(pixolletta), COLOR_ON, TextAlign::CENTER, "%s", ip_address);
 
 font:
   - file: "fonts/Pixolletta8px.ttf"
