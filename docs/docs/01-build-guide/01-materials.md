@@ -5,7 +5,9 @@ id: materials
 # Materials
 
 :::info Disclaimer
-The AliExpress links below are affiliate links, which means we get a cut of the sale at no cost to you. Any revenue received from these links goes towards hosting costs for our Transit Tracker API server; **we do not profit from them**. Thanks for your support!
+The AliExpress links below are affiliate links, which means we get a cut of the sale at no cost to you. Any revenue received from these links goes towards hosting costs for our Transit Tracker API server; **we do not profit from them**. (You can audit our usage of these funds on our [Open Collective](https://opencollective.com/eastside-urbanism).)
+
+Thanks for your support!
 :::
 
 ## Shopping List
