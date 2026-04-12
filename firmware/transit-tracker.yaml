@@ -133,7 +133,7 @@ text:
           id(tracker).set_route_styles_from_text(id(route_styles_config)->state);
   - <<: *config_text_common
     id: now_str_config
-    initial_value: "min"
+    initial_value: "Now"
     on_value:
       then:
         lambda: |-
