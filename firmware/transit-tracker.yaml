@@ -329,6 +329,7 @@ display:
     board: adafruit-matrix-portal-s3
     double_buffer: true
     update_interval: 32ms
+    clock_speed: 16MHz
     panel_width: 64
     panel_height: 32
     layout_cols: 2
