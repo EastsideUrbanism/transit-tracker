@@ -74,7 +74,44 @@ If you see a status message on your Transit Tracker instead of the schedule, tha
 3. Restart your Transit Tracker.
 4. Re-save your configuration from the [configurator](/configurator).
 
-If it's still not working, then it's very likely that the server which hosts the schedule data is down, in which case all you can really do is wait for it to come back up.
+If you are still seeing this message intermittently, then it's very likely a Wi-Fi issue. The Matrix Portal S3 board Transit Tracker uses only supports 2.4 GHz Wi-Fi networks and it is a low-power device, so interference and congestion will affect it more than usual. To mitigate this, try tweaking the following options in your router's settings:
+
+- Broadcast separate 2.4 and 5 GHz networks
+- Choose less-congested Wi-Fi channels for the 2.4 GHz network
+- Disable band steering, if available
+- Toggle on any options related to optimizing IoT (Internet of Things) devices
+
+The location of these settings will vary based on your router's manufacturer, and even from model to model, so we unfortunately can't provide step-by-step instructions for all of them, but we've compiled a list for a few below. If you can't find the settings for your router, please [open a discussion](https://github.com/EastsideUrbanism/transit-tracker/discussions/new?category=wi-fi-issues) and we can help you troubleshoot.
+
+<details>
+<summary>
+Ubiquiti / UniFi Network Application
+</summary>
+
+<h3>Create dedicated 2.4 GHz network</h3>
+
+1. In **Settings → WiFi**, create a new network. Name it anything other than your primary network.
+2. Set **Radio Band** to **2.4 GHz**.
+3. Set **Application** to **IoT**.
+4. Create the network.
+5. Connect your Transit Tracker to this new network.
+
+<h3>Optimize channels</h3>
+
+1. Set **Default WiFi Speeds** to **Conservative**.
+2. Go to **Channel AI**, then select the 2.4 GHz band on each AP.
+3. Set **Channel** to **Auto**. Your APs will restart.
+</details>
+
+<details>
+<summary>
+TP-Link
+</summary>
+
+Follow [TP-Link's guide here](https://www.tp-link.com/us/support/faq/4377/).
+</details>
+
+If you are still experiencing issues after optimizing your router's settings, then please [open a discussion](https://github.com/EastsideUrbanism/transit-tracker/discussions/new?category=wi-fi-issues).
 
 ### "Loading..."
 
