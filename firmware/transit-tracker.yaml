@@ -360,7 +360,7 @@ display:
           it.printf(x, y, id(pixolletta), COLOR_ON, TextAlign::CENTER, "%s", ip_address);
 
 font:
-  - file: "fonts/Pixolletta8px.ttf"
+  - file: "https://github.com/EastsideUrbanism/transit-tracker/raw/f8e71bd1855d47f7d07b38fdbe8c8ac974911955/firmware/fonts/Pixolletta8px.ttf"
     id: pixolletta
     size: 10
     glyphs:
