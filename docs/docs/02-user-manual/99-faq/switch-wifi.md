@@ -4,7 +4,7 @@ You can switch the Wi-Fi network your Transit Tracker connects to in a few diffe
 
 ## USB
 
-1. Connect your Transit Tracker to a computer with a Chromium browser (Firefox and Safari do not support this process).
+1. Connect your Transit Tracker to a computer with a supported browser (Google Chrome, Microsoft Edge, Firefox 151+, or another Chromium-based browser).
 2. Visit the [configurator](/configurator).
 3. Press "Change Wi-Fi".
 4. Follow the instructions to connect your Transit Tracker and select a new Wi-Fi network.
