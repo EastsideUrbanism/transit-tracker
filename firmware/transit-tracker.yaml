@@ -89,7 +89,7 @@ button:
     id: reload_tracker
     on_press:
       - lambda: |-
-          id(tracker).reconnect();
+          id(tracker).reconnect("manual reconnect");
   - platform: template
     id: write_preferences
     on_press:
