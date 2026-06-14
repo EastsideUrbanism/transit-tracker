@@ -7,7 +7,7 @@ on:
 jobs:
   check-gtfs-size:
     runs-on: ubuntu-latest
-    if: github.actor_id == '2646487' && contains(github.event.comment.body, '/gtfs-size')
+    if: github.event.comment.author_association == 'MEMBER' && contains(github.event.comment.body, '/gtfs-size')
 
     env:
       DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/gtfs?sslmode=disable"
