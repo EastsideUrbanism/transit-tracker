@@ -2,7 +2,7 @@
 
 ![](/img/transit-tracker.webp)
 
-Transit Tracker is a DIY public transit arrivals board powered by an ESP32-S3 and two LED matrix displays. It's entirely open source and can be customized to show arrivals for any route from [any transit agency](./02-user-manual/99-faq/agency-support.md).
+Transit Tracker is a DIY public transit arrivals board powered by an ESP32-S3 and two LED matrix displays. It's entirely open source and can be customized to show arrivals for any route from [any transit agency](./02-user-manual/99-faq/agency-support.mdx).
 
 It can be useful near wherever there's a bus stop or train station:
 
