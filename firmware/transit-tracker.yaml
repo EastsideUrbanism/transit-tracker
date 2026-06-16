@@ -26,6 +26,11 @@ psram:
   mode: quad
   speed: 80MHz
 
+globals:
+  - id: ota_progress
+    type: float
+    restore_value: false
+
 external_components:
   - source: github://pr#13921
     components: [ hub75 ]
@@ -48,10 +53,29 @@ api:
   reboot_timeout: 0s
 
 http_request:
-  verify_ssl: false
+  verify_ssl: true
+  watchdog_timeout: 120s
 
 ota:
   - platform: http_request
+    on_begin:
+      then:
+        - display.page.show: ota_progress_page
+        - component.update: matrix
+    on_error:
+      then:
+        - sensor.template.publish:
+            id: last_ota_error
+            state: !lambda return x;
+        - display.page.show: transit_schedule
+    on_end:
+      then:
+        - lambda: id(ota_progress) = 100.0f;
+        - component.update: matrix
+    on_progress:
+      then:
+        - lambda: id(ota_progress) = x;
+        - component.update: matrix
   - platform: esphome
     password: ""
 
@@ -59,6 +83,9 @@ update:
   - platform: http_request
     name: Firmware Update
     source: https://transit-tracker.eastsideurbanism.org/firmware/manifest.json
+    on_update_available:
+      then:
+        - script.execute: update_firmware
 
 switch:
   - platform: template
@@ -74,12 +101,21 @@ switch:
   - platform: template
     id: scroll_headsigns_config
     name: "Scroll Headsigns"
+    icon: "mdi:arrow-expand-horizontal"
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
+    entity_category: "config"
     turn_on_action:
       - lambda: id(tracker).set_scroll_headsigns(true);
     turn_off_action:
       - lambda: id(tracker).set_scroll_headsigns(false);
+  - platform: template
+    id: auto_update_config
+    name: "Auto-Update"
+    icon: "mdi:update"
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    entity_category: "config"
 
 button:
   - platform: restart
@@ -235,6 +271,18 @@ script:
           id: display_brightness
           relative_brightness: !lambda "return up ? 0.2 : -0.2;"
           transition_length: 0.1s
+  - id: update_firmware
+    then:
+      - if:
+          condition:
+            or:
+              - lambda: return ESPHOME_PROJECT_VERSION == "dev";
+              - switch.is_off: auto_update_config
+          then:
+            - logger.log: "New firmware available, but auto-update is disabled or this is a dev build; skipping."
+          else:
+            - logger.log: "New firmware available; starting update."
+            - update.perform:
 
 binary_sensor:
   - platform: template
@@ -243,7 +291,13 @@ binary_sensor:
       return id(up_button).state && id(down_button).state;
     on_press:
       then:
-        - display.page.show_next: matrix
+        - if:
+            condition:
+              display.is_displaying_page: ip_address_page
+            then:
+              - display.page.show: transit_schedule
+            else:
+              - display.page.show: ip_address_page
   - platform: gpio
     id: up_button
     pin: &button_pin_cfg
@@ -317,10 +371,17 @@ sensor:
   - platform: uptime
     type: timestamp
     name: Uptime
+    entity_category: "diagnostic"
   - platform: wifi_signal
     name: "Wi-Fi Signal"
     update_interval: 60s
     entity_category: "diagnostic"
+  - platform: template
+    id: last_ota_error
+    name: "Last OTA Error"
+    accuracy_decimals: 0
+    entity_category: "diagnostic"
+    update_interval: never
 
 display:
   - platform: hub75
@@ -357,6 +418,16 @@ display:
           char ip_address[esphome::network::IP_ADDRESS_BUFFER_SIZE];
           ip_addresses[0].str_to(ip_address);
           it.printf(x, y, id(pixolletta), COLOR_ON, TextAlign::CENTER, "%s", ip_address);
+      - id: ota_progress_page
+        lambda: |-
+          int x = it.get_width() / 2;
+          int y = it.get_height() / 2;
+
+          int y1 = y - 5;
+          int y2 = y + 6;
+
+          it.printf(x, y1, id(pixolletta), Color(0x252627), TextAlign::CENTER, "Updating firmware...");
+          it.printf(x, y2, id(pixolletta), Color(0x252627), TextAlign::CENTER, "%.0f%% complete", id(ota_progress));
 
 font:
   - file: "fonts/Pixolletta8px.ttf"
@@ -373,6 +444,7 @@ time:
     timezone: America/Los_Angeles
 
 web_server:
+  version: 3
 
 transit_tracker:
   id: tracker
