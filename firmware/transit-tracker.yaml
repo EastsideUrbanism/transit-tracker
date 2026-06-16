@@ -239,6 +239,20 @@ select:
       then:
         lambda: |-
           id(tracker).set_list_mode(id(list_mode_config)->current_option());
+  - platform: template
+    id: orientation_config
+    name: "Display Orientation"
+    icon: "mdi:swap-vertical"
+    entity_category: "config"
+    optimistic: true
+    restore_value: true
+    options:
+      - "Auto-Detect"
+      - "0 degrees"
+      - "180 degrees"
+    on_value:
+      then:
+        - script.execute: update_orientation
 
 output:
   - platform: template
@@ -283,6 +297,43 @@ script:
           else:
             - logger.log: "New firmware available; starting update."
             - update.perform:
+  - id: update_orientation
+    then:
+      - if:
+          condition:
+            select.is:
+              id: orientation_config
+              options: ["Auto-Detect"]
+          then:
+            - if:
+                condition:
+                  text_sensor.state:
+                    id: orientation_sensor
+                    state: "Portrait Upside Down"
+                then:
+                  - switch.turn_on: flip_display_config
+            - if:
+                condition:
+                  text_sensor.state:
+                    id: orientation_sensor
+                    state: "Portrait Upright"
+                then:
+                  - switch.turn_off: flip_display_config
+          else:
+            - if:
+                condition:
+                  select.is:
+                    id: orientation_config
+                    options: ["180 degrees"]
+                then:
+                  - switch.turn_on: flip_display_config
+            - if:
+                condition:
+                  select.is:
+                    id: orientation_config
+                    options: ["0 degrees"]
+                then:
+                  - switch.turn_off: flip_display_config
 
 binary_sensor:
   - platform: template
@@ -354,18 +405,7 @@ text_sensor:
       id: orientation_sensor
       on_value:
         then:
-          - if:
-              condition:
-                lambda: |-
-                  return x == "Portrait Upside Down";
-              then:
-                - switch.turn_on: flip_display_config
-          - if:
-              condition:
-                lambda: |-
-                  return x == "Portrait Upright";
-              then:
-                - switch.turn_off: flip_display_config
+          - script.execute: update_orientation
 
 sensor:
   - platform: uptime
