@@ -13,6 +13,16 @@ interface Region {
 
 const agencies: Region[] = [
   {
+    region: "Arizona, USA",
+    agencies: [
+      {
+        name: "Valley Metro",
+        area: "Phoenix, AZ",
+        realTime: true,
+      },
+    ],
+  },
+  {
     region: "California, USA",
     agencies: [
       {
