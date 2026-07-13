@@ -152,6 +152,11 @@ const agencies: Region[] = [
         realTime: true,
       },
       { name: "C-TRAN", area: "Clark County, WA", realTime: false },
+      {
+        name: "Spokane Transit Authority",
+        area: "Spokane, WA",
+        realTime: true,
+      },
     ],
   },
   {
