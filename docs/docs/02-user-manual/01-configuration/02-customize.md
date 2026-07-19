@@ -11,3 +11,7 @@ For example, you can abbreviate "Transit Center" to simply "TC". A headsign of "
 ## Route Styles
 
 This option lets you change the name and color of each route.
+
+## Header Text
+
+You can set a static piece of text to show at the top of your Transit Tracker before the trips. This can be useful to show the stop name or agency name.
