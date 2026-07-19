@@ -37,7 +37,7 @@ external_components:
     refresh: 1h
   - source: github://tjhorner/esphome-custom-components@157c1c216ab296fd2cecc197728f9cbb909344d3
     components: [ serial_rpc, lis3dh, project_version ]
-  - source: github://tjhorner/esphome-transit-tracker@d03f3a6c8342879ca2fb1a070a059540309c4079
+  - source: github://tjhorner/esphome-transit-tracker@43ef0e2f4ef254181029710e9843849744eee2dc
 
 logger:
   level: DEBUG
@@ -154,6 +154,12 @@ text:
       then:
         lambda: |
           id(tracker).set_schedule_string(id(schedule_config)->state);
+  - <<: *config_text_common
+    id: header_text_config
+    on_value:
+      then:
+        lambda: |
+          id(tracker).set_header_text(id(header_text_config)->state);
   - <<: *config_text_common
     id: abbreviations_config
     on_value:
