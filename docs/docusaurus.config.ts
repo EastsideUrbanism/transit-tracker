@@ -40,6 +40,7 @@ const config: Config = {
         dataDomains: "transit-tracker.eastsideurbanism.org",
       } satisfies UmamiOptions,
     ],
+    require.resolve("./src/plugins/bluesky-posts"),
   ],
 
   presets: [

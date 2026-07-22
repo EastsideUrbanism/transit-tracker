@@ -1,12 +1,13 @@
 import type { ReactNode } from "react"
 import clsx from "clsx"
 import Link from "@docusaurus/Link"
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
 import Heading from "@theme/Heading"
 import { useColorMode } from "@docusaurus/theme-common"
+import { usePluginData } from "@docusaurus/useGlobalData"
 import styles from "./index.module.css"
-import { PostThread } from "react-bluesky-embed"
+import { EmbeddedPostThread } from "react-bluesky-embed"
+import type { BlueskyPost } from "../plugins/bluesky-posts"
 
 function HomepageHeader() {
   return (
@@ -48,40 +49,10 @@ function HomepageHeader() {
 function BlueskyEmbeds(): ReactNode {
   const { colorMode } = useColorMode()
   const embedTheme = colorMode === "dark" ? "dark" : "light"
+  const posts = usePluginData("bluesky-posts-plugin") as BlueskyPost[]
 
-  const postData = [
-    {
-      did: "did:plc:qg74h56j6z4l7pbyueych7qi",
-      rkey: "3ljy6vxmft22f",
-    },
-    {
-      did: "did:plc:mytl26cgab464n3e5eputxf3",
-      rkey: "3ljwcfaufc22e",
-    },
-    {
-      did: "did:plc:pmqv7bhxcvbyshp3gqrtfbsr",
-      rkey: "3ljyg6s623c2l",
-    },
-    {
-      did: "did:plc:rwg72ziv7y3vwe6mt6qbejbb",
-      rkey: "3ljyeozobd22w",
-    },
-    {
-      did: "did:plc:gq6wthafyehp4gizacwd6x5d",
-      rkey: "3ljyacacl6k2j",
-    },
-    {
-      did: "did:plc:mc5hqf754fb2ls6k2dyjb4jw",
-      rkey: "3ljzvsd4q3q2k",
-    },
-    {
-      did: "did:plc:6vatl6lhsv3ninhf7n4ssria",
-      rkey: "3ljyge6jvvc2x",
-    },
-  ]
-
-  const columns = [[], [], []]
-  postData.forEach((post, index) => {
+  const columns: BlueskyPost[][] = [[], [], []]
+  posts.forEach((post, index) => {
     columns[index % columns.length].push(post)
   })
 
@@ -89,11 +60,10 @@ function BlueskyEmbeds(): ReactNode {
     <div className={clsx(styles.blueskyPosts)}>
       {columns.map((columnPosts, colIndex) => (
         <div key={`column-${colIndex}`} className={styles.blueskyColumn}>
-          {columnPosts.map(({ did, rkey }) => (
-            <PostThread
+          {columnPosts.map(({ did, rkey, postThread }) => (
+            <EmbeddedPostThread
               key={`${did}-${rkey}`}
-              params={{ did, rkey }}
-              config={{ depth: 0 }}
+              postThread={postThread}
               theme={embedTheme}
             />
           ))}
@@ -108,6 +78,10 @@ export default function Home(): ReactNode {
     <Layout description="Transit Tracker is a DIY customizable public transit arrivals board for your home.">
       <HomepageHeader />
       <main>
+        <div className={clsx(styles.showcaseTitle)}>
+          <Heading as="h1">⭐ Showcase ⭐</Heading>
+          <Heading as="h3">Show yours off with #TransitTracker!</Heading>
+        </div>
         <BlueskyEmbeds />
       </main>
     </Layout>
