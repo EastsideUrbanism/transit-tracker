@@ -23,7 +23,6 @@
     "@docusaurus/theme-mermaid": "^3.10.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
-    "improv-wifi-sdk": "^1.4.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-bluesky-embed": "^0.5.0",

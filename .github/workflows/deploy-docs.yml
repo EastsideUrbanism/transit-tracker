@@ -43,6 +43,9 @@ jobs:
 
       - name: build
         working-directory: ./docs
+        env:
+          BLUESKY_IDENTIFIER: ${{ secrets.BLUESKY_IDENTIFIER }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
         run: npm run build
 
       - name: Upload Artifacts
