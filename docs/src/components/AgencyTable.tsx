@@ -237,6 +237,16 @@ const agencies: Region[] = [
         realTime: true,
       },
       {
+        name: "Hamburger Verkehrsverbund (HVV)",
+        area: "Hamburg, Germany",
+        realTime: true,
+      },
+      {
+        name: "Deutsche Bahn (DB)",
+        area: "Germany",
+        realTime: true,
+      },
+      {
         name: "Tranvías de La Coruña",
         area: "La Coruña, Spain",
         realTime: false,
