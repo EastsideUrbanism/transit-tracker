@@ -78,6 +78,16 @@ const agencies: Region[] = [
     ],
   },
   {
+    region: "Minnesota, USA",
+    agencies: [
+      {
+        name: "Metro Transit",
+        area: "Minneapolis-St. Paul, MN",
+        realTime: true,
+      },
+    ],
+  },
+  {
     region: "New Jersey, USA",
     agencies: [{ name: "NJ Transit", area: "New Jersey", realTime: false }],
   },
