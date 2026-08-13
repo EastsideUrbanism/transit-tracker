@@ -1,4 +1,5 @@
 import React from "react"
+import { useColorMode } from "@docusaurus/theme-common"
 
 interface Agency {
   name: string
@@ -256,6 +257,10 @@ const agencies: Region[] = [
 ]
 
 export default function AgencyTable(): React.JSX.Element {
+  const { colorMode } = useColorMode()
+  const realTimeIcon =
+    colorMode === "dark" ? "/img/icon-dark.svg" : "/img/icon.svg"
+
   return (
     <table>
       <thead>
@@ -286,7 +291,13 @@ export default function AgencyTable(): React.JSX.Element {
                 <td>{agency.name}</td>
                 <td>{agency.area}</td>
                 <td style={{ textAlign: "center" }}>
-                  {agency.realTime ? "✅" : ""}
+                  {agency.realTime && (
+                    <img
+                      src={realTimeIcon}
+                      alt="Real-time data available"
+                      style={{ height: "1em", verticalAlign: "middle" }}
+                    />
+                  )}
                 </td>
               </tr>
             ))}
