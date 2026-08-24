@@ -296,7 +296,7 @@ script:
       - if:
           condition:
             or:
-              - lambda: return ESPHOME_PROJECT_VERSION == "dev";
+              - lambda: return strcmp(ESPHOME_PROJECT_VERSION, "dev") == 0;
               - switch.is_off: auto_update_config
           then:
             - logger.log: "New firmware available, but auto-update is disabled or this is a dev build; skipping."
