@@ -1,6 +1,6 @@
 {
   "name": "Transit Tracker Firmware",
-  "version": "v3.3.0",
+  "version": "v3.3.1",
   "home_assistant_domain": "esphome",
   "new_install_prompt_erase": true,
   "builds": [
@@ -13,9 +13,9 @@
         }
       ],
       "ota": {
-        "md5": "02d932fbb1bad788d7fb8b470da073aa",
+        "md5": "2fdb97b4e4e8fdfd647d303f13ec26cd",
         "path": "https://transit-tracker.eastsideurbanism.org/firmware/firmware.ota.bin",
-        "release_url": "https://github.com/EastsideUrbanism/transit-tracker/releases/tag/v3.3.0"
+        "release_url": "https://github.com/EastsideUrbanism/transit-tracker/releases/tag/v3.3.1"
       }
     }
   ]
