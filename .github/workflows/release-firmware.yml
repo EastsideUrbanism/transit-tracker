@@ -27,9 +27,8 @@ jobs:
         run: |
           esphome -s project_version ${{ github.event.release.tag_name }} compile transit-tracker.yaml
           mkdir -p bin
-          cp .esphome/build/transit-tracker/.pioenvs/transit-tracker/firmware.factory.bin bin/firmware.factory.bin
-          cp .esphome/build/transit-tracker/.pioenvs/transit-tracker/firmware.ota.bin bin/firmware.ota.bin
-          cp .esphome/build/transit-tracker/.pioenvs/transit-tracker/firmware.bin bin/firmware.bin
+          cp .esphome/build/transit-tracker/build/firmware.factory.bin bin/firmware.factory.bin
+          cp .esphome/build/transit-tracker/build/firmware.ota.bin bin/firmware.ota.bin
 
       - name: Upload Workflow Artifacts
         uses: actions/upload-artifact@v4
@@ -61,7 +60,6 @@ jobs:
 
       - name: Move Firmware Binaries
         run: |
-          mv /tmp/firmware-build/firmware.bin docs/static/firmware/firmware.bin
           mv /tmp/firmware-build/firmware.ota.bin docs/static/firmware/firmware.ota.bin
           mv /tmp/firmware-build/firmware.factory.bin docs/static/firmware/firmware.factory.bin
 
