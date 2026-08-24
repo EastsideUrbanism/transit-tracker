@@ -7,7 +7,7 @@ esphome:
   name: ${name}
   friendly_name: ${friendly_name}
   name_add_mac_suffix: true
-  min_version: 2026.6.5
+  min_version: 2026.8.1
   project:
     name: "Eastside Urbanism.Transit Tracker"
     version: ${project_version}
