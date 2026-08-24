@@ -37,7 +37,7 @@ external_components:
     refresh: 1h
   - source: github://tjhorner/esphome-custom-components@157c1c216ab296fd2cecc197728f9cbb909344d3
     components: [ serial_rpc, lis3dh, project_version ]
-  - source: github://tjhorner/esphome-transit-tracker@43ef0e2f4ef254181029710e9843849744eee2dc
+  - source: github://tjhorner/esphome-transit-tracker@c54676e5fa0ad1aaccd9a5e047d2f642a4a53629
 
 logger:
   level: DEBUG
