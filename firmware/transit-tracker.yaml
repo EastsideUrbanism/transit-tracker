@@ -58,6 +58,7 @@ http_request:
 
 ota:
   - platform: http_request
+    id: ota_http_request
     on_begin:
       then:
         - display.page.show: ota_progress_page
@@ -77,10 +78,12 @@ ota:
         - lambda: id(ota_progress) = x;
         - component.update: matrix
   - platform: esphome
+    id: ota_esphome
     password: ""
 
 update:
   - platform: http_request
+    id: update_http_request
     name: Firmware Update
     source: https://transit-tracker.eastsideurbanism.org/firmware/manifest.json
     on_update_available:
