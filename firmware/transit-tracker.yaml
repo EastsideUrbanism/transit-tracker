@@ -2,6 +2,7 @@ substitutions:
   name: "transit-tracker"
   friendly_name: "Transit Tracker"
   project_version: "dev"
+  pixolletta_file_path: "https://raw.githubusercontent.com/EastsideUrbanism/transit-tracker/main/firmware/fonts/Pixolletta8px.ttf"
 
 esphome:
   name: ${name}
@@ -479,7 +480,7 @@ display:
           it.printf(x, y2, id(pixolletta), Color(0x252627), TextAlign::CENTER, "%.0f%% complete", id(ota_progress));
 
 font:
-  - file: "fonts/Pixolletta8px.ttf"
+  - file: ${pixolletta_file_path}
     id: pixolletta
     size: 10
     glyphs:

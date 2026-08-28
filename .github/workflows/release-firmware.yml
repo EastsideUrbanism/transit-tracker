@@ -25,7 +25,7 @@ jobs:
       - name: Compile Release Firmware
         working-directory: firmware
         run: |
-          esphome -s project_version ${{ github.event.release.tag_name }} compile transit-tracker.yaml
+          esphome -s pixolletta_file_path "fonts/Pixolletta8px.ttf" -s project_version ${{ github.event.release.tag_name }} compile transit-tracker.yaml
           mkdir -p bin
           cp .esphome/build/transit-tracker/build/firmware.factory.bin bin/firmware.factory.bin
           cp .esphome/build/transit-tracker/build/firmware.ota.bin bin/firmware.ota.bin
