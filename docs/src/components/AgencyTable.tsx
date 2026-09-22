@@ -64,7 +64,7 @@ const agencies: Region[] = [
       {
         name: "Champaign-Urbana Mass Transit District (MTD)",
         area: "Champaign-Urbana, IL",
-        realTime: false,
+        realTime: true,
       },
     ],
   },
