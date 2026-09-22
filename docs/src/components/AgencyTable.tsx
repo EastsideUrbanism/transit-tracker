@@ -61,6 +61,34 @@ const agencies: Region[] = [
         realTime: false,
       },
       { name: "Metra", area: "Chicago, IL", realTime: true },
+      {
+        name: "Champaign-Urbana Mass Transit District (MTD)",
+        area: "Champaign-Urbana, IL",
+        realTime: false,
+      },
+    ],
+  },
+  {
+    region: "Maryland, USA",
+    agencies: [
+      {
+        name: "Maryland Transit Administration (MTA)",
+        area: "Maryland",
+        realTime: true,
+      },
+      { name: "MARC Train", area: "Maryland", realTime: true },
+      { name: "Charm City Circulator", area: "Baltimore, MD", realTime: true },
+      {
+        name: "Regional Transportation Agency of Central Maryland (RTA)",
+        area: "Central Maryland",
+        realTime: true,
+      },
+      {
+        name: "TheBus",
+        area: "Prince George's County, MD",
+        realTime: true,
+      },
+      { name: "Ride On", area: "Montgomery County, MD", realTime: false },
     ],
   },
   {
@@ -98,6 +126,16 @@ const agencies: Region[] = [
       { name: "MTA Buses", area: "New York City, NY", realTime: true },
       { name: "NYC Subway", area: "New York City, NY", realTime: true },
       { name: "NYC Ferry", area: "New York City, NY", realTime: true },
+      {
+        name: "Long Island Rail Road (LIRR)",
+        area: "New York City & Long Island, NY",
+        realTime: true,
+      },
+      {
+        name: "Metro-North Railroad",
+        area: "New York City & Hudson Valley, NY",
+        realTime: true,
+      },
     ],
   },
   {
@@ -114,6 +152,7 @@ const agencies: Region[] = [
   {
     region: "Texas, USA",
     agencies: [
+      { name: "CapMetro", area: "Austin, TX", realTime: true },
       {
         name: "Dallas Area Rapid Transit (DART)",
         area: "Dallas, TX",
