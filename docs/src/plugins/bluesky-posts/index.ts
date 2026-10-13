@@ -15,6 +15,7 @@ export interface BlueskyPost extends BlueskyPostParams {
 const POSTS: BlueskyPostParams[] = [
   { did: "did:plc:kxl3ljro3smgvt2bshey2vya", rkey: "3mlmxg2n2wk2y" },
   { did: "did:plc:rcvzfbkjuznscymsvbgszpln", rkey: "3m6j7cvsyjk26" },
+  { did: "did:plc:i6vkmk3toh2zpcyo7qws7em3", rkey: "3mx7r52ooyc2t" },
   { did: "did:plc:kd3h7d7gev3kk77i33j6vtng", rkey: "3m6sesfjshc2v" },
   { did: "did:plc:necklg6lonmgj63paywrzogw", rkey: "3mlriexwnb22n" },
   { did: "did:plc:4fcty2dkz4tzc3xp42vv73qv", rkey: "3mef5ey73ok2l" },
