@@ -33,9 +33,6 @@ globals:
     restore_value: false
 
 external_components:
-  - source: github://pr#13921
-    components: [ hub75 ]
-    refresh: 1h
   - source: github://tjhorner/esphome-custom-components@157c1c216ab296fd2cecc197728f9cbb909344d3
     components: [ serial_rpc, lis3dh, project_version ]
   - source: github://tjhorner/esphome-transit-tracker@c54676e5fa0ad1aaccd9a5e047d2f642a4a53629
