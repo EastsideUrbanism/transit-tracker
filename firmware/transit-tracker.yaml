@@ -34,7 +34,7 @@ globals:
 
 external_components:
   # This pin can be removed once the changes from this
-  # PR have been released in a new ESPHome version:
+  # PR have been released in a new ESPHome version (likely 2026.11):
   # https://github.com/esphome/esphome/pull/13921
   - source: github://esphome/esphome@52622ac820fc6e46a665fdc6636fc3c11fe795e8
     components: [ hub75 ]
