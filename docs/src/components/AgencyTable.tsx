@@ -237,6 +237,7 @@ const agencies: Region[] = [
   {
     region: "British Columbia, Canada",
     agencies: [
+      { name: "BC Transit", area: "Kamloops, BC", realTime: true },
       { name: "TransLink", area: "Metro Vancouver, BC", realTime: true },
     ],
   },
