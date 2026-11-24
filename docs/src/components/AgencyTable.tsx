@@ -58,7 +58,7 @@ const agencies: Region[] = [
       {
         name: "Chicago Transit Authority (CTA)",
         area: "Chicago, IL",
-        realTime: false,
+        realTime: true,
       },
       { name: "Metra", area: "Chicago, IL", realTime: true },
       {
